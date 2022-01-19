@@ -19,24 +19,26 @@ function App() {
   return (
     <>
       <div>
-        <Navbar />
-        <Home />
-        <Footer />
-        <Routes>
-          <Route exact path="/" element={<Home />}/> 
-          <Route path="/about" element={<About />}/>
-          <Route path="/admin" element={<Admin />}/>
-          <Route path="/adminlogin" element={<Adminlogin />}/>
-          <Route path="/allblogs" element={<Allblogs />}/>
-          <Route path="/allusers" element={<Allusers />}/>
-          <Route path="/blog" element={<Blog />}/>
-          <Route path="/editblog" element={<Editblog />}/>
-          <Route path="/login" element={<Login />}/>
-          <Route path="/newblog" element={<Newblog />}/>
-          <Route path="/signup" element={<Signup />}/>
-          <Route path="/profile" element={<Profile />}/>
-        </Routes>
-
+        <div className="App">
+            <Navbar />
+          <header className="App-header">
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/admin" element={<Admin />} />
+              <Route path="/adminlogin" element={<Adminlogin />} />
+              <Route path="/allblogs" element={<Allblogs />} />
+              <Route path="/allusers" element={<Allusers />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/editblog" element={<Editblog />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/newblog" element={<Newblog />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/profile" element={<Profile />} />
+            </Routes>
+          </header>
+            <Footer />
+        </div>
       </div>
 
     </>

@@ -10,4 +10,13 @@
   color: rgb(0, 0, 0);
 }
 
+a{
+  text-decoration: black !important;
+  color: black !important;
+}
+
+a:hover{
+  color: black !important;
+  text-decoration: inherit !important;
+}
 
