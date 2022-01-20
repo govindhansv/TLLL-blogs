@@ -1,4 +1,5 @@
 import React from 'react';
+import './Editblog.css'
 
 const Editblog = () => {
     return <div>
