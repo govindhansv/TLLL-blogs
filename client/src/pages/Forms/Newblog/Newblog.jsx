@@ -1,6 +1,7 @@
 import React from 'react';
 import './Newblog.css'
 
+
 const Newblog = () => {
     return <div>
       <div className="write">
