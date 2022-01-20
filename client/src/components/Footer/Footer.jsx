@@ -13,7 +13,7 @@ const Footer = () => {
                             <div className="foot-main">
                                 <div className="foot-logo">
                                     <img src="../../logo-square.png" alt="" width="100px" height="100px" />
-                                    <h5 class="white-text ml-5">Live and let Live </h5>
+                                    <h5 class="white-text ">Live and let Live </h5>
                                 </div>
                             </div>
                             <p class="grey-text text-muted">The only way to deal with an unfree world is to become so absolutely free that your very existence is an act of rebellion</p>
@@ -22,7 +22,8 @@ const Footer = () => {
                             <h5 class="white-text">Links</h5>
                             <ul>
                                 <li><Link class="grey-text text-lighten-3" to="/newblog">Newblog</Link></li>
-                                <li><Link class="grey-text text-lighten-3" to="/blog"></Link>Blog</li>
+                                <li><Link class="grey-text text-lighten-3" to="/blog">Blog</Link></li>
+                                <li><Link class="grey-text text-lighten-3" to="/profile">Profile</Link></li>
                             </ul>
                         </div>
                     </div>
