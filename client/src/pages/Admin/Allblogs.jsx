@@ -1,4 +1,5 @@
 import React from 'react';
+import './Allblogs.css'
 
 const Allblogs = () => {
     return <div>

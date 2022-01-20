@@ -1,5 +1,6 @@
 import React from 'react';
 import Blogs from '../../components/Blogs/Blogs';
+import './Home.css'
 
 const Home = () => {
   return <div>
