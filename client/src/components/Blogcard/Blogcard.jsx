@@ -2,10 +2,6 @@ import React from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import './Blogcard.css'
 
-<<<<<<< HEAD
-const Blogcard = (blogs) => {
-    let blog = blogs.blogs
-=======
 const Blogcard = ({ blog }) => {
 
     const navigate = useNavigate()
@@ -29,16 +25,11 @@ const Blogcard = ({ blog }) => {
     }
 
 
->>>>>>> 6e14442b632a3097a9c4ef8088dfd7d191fb953e
     return <div>
         <div className="post">
             <img
                 className="postImg"
-<<<<<<< HEAD
-                src="https://images.pexels.com/photos/1770809/pexels-photo-1770809.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-=======
                 src={blog.img}
->>>>>>> 6e14442b632a3097a9c4ef8088dfd7d191fb953e
                 alt=""
             />
             <div className="postInfo">
@@ -55,15 +46,9 @@ const Blogcard = ({ blog }) => {
                     </span>
                 </div>
                 <span className="postTitle">
-<<<<<<< HEAD
-                    <Link to={`blog/${blog._id}`} className="link">
-                        {blog.title}
-                    </Link>
-=======
                     <button className="link" value={blog._id} onClick={(e) => { FetchBlog(e) }}>
                         {blog.title}
                     </button>
->>>>>>> 6e14442b632a3097a9c4ef8088dfd7d191fb953e
                 </span>
                 <hr />
                 <span className="postDate">1 hour ago</span>

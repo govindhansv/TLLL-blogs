@@ -5,14 +5,9 @@ import './Navbar.css'
 const Navbar = () => {
       
 
-<<<<<<< HEAD
-    const [value, setValue] = useState();
-    
-=======
     const [value,setValue] = useState();
     console.log(value);
 
->>>>>>> 6e14442b632a3097a9c4ef8088dfd7d191fb953e
     const refresh = ()=>{
         // it re-renders the component
         setValue({});
