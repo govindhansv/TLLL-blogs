@@ -1,19 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Signup.css'
 
 const Signup = () => {
+  const [gmail, setgmail] = useState('');
+  const [password, setpassword] = useState('');
+  const [username, setusername] = useState('');
+
+  const PostData = () => {
+    console.log(gmail, password, username);
+    fetch("users/signup", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username,
+        gmail,
+        password,
+      })
+    }).then(response => response.json())
+      .then(data => {
+        console.log(data);
+        // if (data.signin) {
+        //   navigate('/')
+        // }
+      })
+  }
+
   return <div>
-      <div className="register">
+    <div className="register">
       <span className="registerTitle">Register</span>
-      <form className="registerForm">
+      <div className="registerForm">
         <label>Username</label>
-        <input className="registerInput" type="text" placeholder="Enter your username..." />
+        <input className="registerInput" value={username} onChange={(e) => { setusername(e.target.value) }} type="text" placeholder="Enter your username..." />
         <label>Email</label>
-        <input className="registerInput" type="text" placeholder="Enter your email..." />
+        <input className="registerInput" type="email" value={gmail} onChange={(e) => { setgmail(e.target.value) }} placeholder="Enter your email..." />
         <label>Password</label>
-        <input className="registerInput" type="password" placeholder="Enter your password..." />
-        <button className="btn btn-success m-3">Register</button>
-      </form>
+        <input className="registerInput" type="password" value={password} onChange={(e) => { setpassword(e.target.value) }} placeholder="Enter your password..." />
+        <button className="btn btn-success m-3" onClick={() => { PostData() }}>Register</button>
+      </div>
     </div>
   </div>;
 };

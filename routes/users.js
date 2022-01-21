@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../connection')
-// var fun = require('../functions')
+var fun = require('../functions')
 // var ObjectId = require('mongodb').ObjectId
 
 
@@ -43,22 +43,19 @@ var db = require('../connection')
 //   res.render('blog', { blogs,user,blog })
 // })
 
-// router.post('/signup', (req, res) => {
-//   fun.doSignup(req.body).then((response) => {
-//     if (response.signupstatus) {
-//       session = req.session;
-//       session.user = response.insertedId
-//       session.loggedfalse = false
-//       session.loggedIN = true
-//       res.redirect('/users/')
-//     } else {
-//       req.session.signupstatusfalse = true
-//       res.redirect('/users/signup/')
-//     }
+router.post('/signup', (req, res) => {
+    console.log(req.body);
+    fun.doSignup(req.body).then((response) => {
+        if (response.signupstatus) {
+            response.loggedIN = true
+            res.json(response)
+        } else {
+            response.loggedIN = false
+            res.json(response)
+        }
+    })
+})
 
-//   })
-
-// })
 // router.get('/login', function (req, res) {
 //   console.log(req.session);
 //   if (req.session.loggedIN) {
@@ -71,20 +68,17 @@ var db = require('../connection')
 //   }
 // });
 
-// router.post('/login', (req, res) => {
-//   fun.doLogin(req.body).then((response) => {
-//     if (response.status) {
-//       req.session.user = String(response.user._id)
-//       req.session.loggedfalse = false
-//       req.session.loggedIN = true
-//       res.redirect('/users/')
-//     } else {
-//       req.session.loggedfalse = true
-
-//       res.redirect('/users/login');
-//     }
-//   })
-// })
+router.post('/login', (req, res) => {
+    fun.doLogin(req.body).then((response) => {
+        if (response.loginstatus) {
+            response.loggedIN = true
+            res.json(response)
+        } else {
+            response.loggedIN = false
+            res.json(response)
+        }
+    })
+})
 
 // router.get('/logout', function (req, res) {
 //   req.session.destroy()
@@ -97,7 +91,7 @@ var db = require('../connection')
 //   let blogs = await db.get().collection('blogs').find({ "userid": req.session.user }).toArray()
 //   res.render('profile', { user, blogs })
 // });
- 
+
 
 
 // router.get('/profile/:id', async function (req, res) {
@@ -143,7 +137,7 @@ var db = require('../connection')
 //   }
 //   // fun.imgUpload(blogdata).then((response)=>{ //for cloudinary 
 //   // })
-  
+
 //   let blogid = blogdata.blogid
 //   console.log(blogid);
 //   let myquery = {_id:ObjectId(blogid)}
