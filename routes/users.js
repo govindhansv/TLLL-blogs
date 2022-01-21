@@ -11,16 +11,18 @@ var ObjectId = require('mongodb').ObjectId
 
 router.post('/newblog', async function (req, res) {
     let blogdata = req.body
-    db.get().collection('blogs').insertOne(blogdata)
+    // db.get().collection('blogs').insertOne(blogdata)
     let resp = { blogdata: blogdata }
-    res.json(resp)
+    console.log('called');
+        res.json(resp)
 });
 
-router.get('/blog/:id', (req, res) => {
-    let blogdata = await db.get().collection('blogs').findOne({ _id: ObjectId(id) })
-    let resp = { blogdata: blogdata }
-    res.json(resp)
-})
+// router.get('/blog/:id', async (req, res) => {
+//     let id = req.params._id
+//     let blogdata = await db.get().collection('blogs').findOne({ _id: ObjectId(id) })
+//     let resp = { blogdata: blogdata }
+//     res.json(resp)
+// })
 
 
 

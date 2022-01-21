@@ -8,6 +8,7 @@ const PORT = 5000;
 const db = require('./connection');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const createError = require('http-errors');
 
 app.use(express.json())
 app.use('/users', usersRouter)
@@ -57,7 +58,10 @@ app.use(function (err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
+    // res.json({
+    //     message: err.message,
+    //     error: err
+    //   });
 });
 
 module.exports = app;

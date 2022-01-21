@@ -29,7 +29,7 @@ function App() {
               <Route path="/adminlogin" element={<Adminlogin />} />
               <Route path="/allblogs" element={<Allblogs />} />
               <Route path="/allusers" element={<Allusers />} />
-              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<Blog />} />
               <Route path="/editblog" element={<Editblog />} />
               <Route path="/login" element={<Login />} />
               <Route path="/newblog" element={<Newblog />} />
