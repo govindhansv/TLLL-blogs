@@ -10,7 +10,7 @@ const Signup = () => {
   const navigate = useNavigate()
   const PostData = () => {
     console.log(gmail, password, username);
-    fetch("users/signup", {
+    fetch("users/signup", {  
       method: "post",
       headers: {
         "Content-Type": "application/json"
@@ -18,7 +18,7 @@ const Signup = () => {
       body: JSON.stringify({
         username,
         gmail,
-        password,
+        password
       })
     }).then(response => response.json())
       .then(data => {

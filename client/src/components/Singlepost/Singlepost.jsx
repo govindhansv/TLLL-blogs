@@ -3,18 +3,20 @@ import { Link } from 'react-router-dom'
 import './Singlepost.css'
 
 
-const Singlepost = ({ blog }) => {
-  console.log(blog);
+const Singlepost = () => {
+  let blog = JSON.parse(localStorage.getItem('myblog'))
+ 
+
   return <div>
     <div className="singlePost container">
       <div className="singlePostWrapper">
         <img
           className="singlePostImg"
-          src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-          alt=""
+          src={blog.img}
+          alt="" 
         />
         <h1 className="singlePostTitle">
-          {/* {blog.blog.title} */}
+          {blog.title}
           <div className="singlePostEdit">
             <i className="singlePostIcon far fa-edit"></i>
             <i className="singlePostIcon far fa-trash-alt"></i>
@@ -32,8 +34,13 @@ const Singlepost = ({ blog }) => {
           <span>1 day ago</span>
         </div>
         <p className="singlePostDesc">
+<<<<<<< HEAD
           {/* {blo.blog} */}
          
+=======
+          {blog.blog}
+
+>>>>>>> 6e14442b632a3097a9c4ef8088dfd7d191fb953e
         </p>
       </div>
     </div>

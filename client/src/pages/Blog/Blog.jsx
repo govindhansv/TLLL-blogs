@@ -18,10 +18,22 @@ const Blog = () => {
     fetchPosts()
   }, [])
 
+<<<<<<< HEAD
   return (
     <>
       <div>
         <Singlepost blog={blog} />
+=======
+const Blog = () => {
+
+ 
+
+
+  return (
+    <>
+      <div>
+        <Singlepost/>
+>>>>>>> 6e14442b632a3097a9c4ef8088dfd7d191fb953e
         <Profileblock />
       </div>
     </>

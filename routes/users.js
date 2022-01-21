@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../connection')
 var ObjectId = require('mongodb').ObjectId
-
+var fun = require('../functions')
 
 
 
@@ -11,12 +11,19 @@ var ObjectId = require('mongodb').ObjectId
 
 router.post('/newblog', async function (req, res) {
     let blogdata = req.body
+<<<<<<< HEAD
+=======
+    console.log('posted');
+    if (!blogdata.img) {
+        blogdata.img = 'https://images.pexels.com/photos/3293148/pexels-photo-3293148.jpeg?cs=srgb&dl=pexels-asad-photo-maldives-3293148.jpg&fm=jpg'
+    }
+>>>>>>> 6e14442b632a3097a9c4ef8088dfd7d191fb953e
     db.get().collection('blogs').insertOne(blogdata)
     let resp = { blogdata: blogdata }
-    console.log('called');
-        res.json(resp)
+    res.json(resp)
 });
 
+<<<<<<< HEAD
 router.get('/blogs', async (req, res) => {
     console.log('fetch req on users/blogs');
     let blogdata = await db.get().collection('blogs').find().toArray()
@@ -30,6 +37,50 @@ router.get('/blog/:id', async (req, res) => {
     let blog = await db.get().collection('blogs').findOne({ _id: ObjectId(id) })
     let resp = { blog: blog }
     res.json(resp)
+=======
+
+router.post('/blog', async (req, res) => {
+    console.log('call');
+    let id = req.body.id
+    let blogdata = await db.get().collection('blogs').findOne({ _id: ObjectId(id) })
+    let resp = { blogdata: blogdata }
+    console.log(resp);
+    res.json(resp)
+})
+router.post('/update', async (req, res) => {
+    console.log(req.body);
+    let obj = { _id: ObjectId(req.body.id) }
+    if (req.body.password) {
+        
+        var query = {
+            $set: {
+                username: req.body.username, gmail: req.body.gmail,password:req.body.password
+            }
+        }
+    }else{
+
+        var query = {
+            $set: {
+                username: req.body.username, gmail: req.body.gmail
+            }
+        }
+
+    }
+  
+
+    db.get().collection('users').updateOne(obj, query).then((resp) => {
+        console.log(resp);
+
+        res.json(resp)
+    })
+
+})
+
+
+router.get('/blogs', async (req, res) => {
+    let blogs = await db.get().collection('blogs').find({}).toArray()
+    res.json(blogs)
+>>>>>>> 6e14442b632a3097a9c4ef8088dfd7d191fb953e
 })
 
 
@@ -88,9 +139,13 @@ router.get('/blog/:id', async (req, res) => {
 // })
 
 router.post('/signup', (req, res) => {
+
+    console.log('postsss');
     fun.doSignup(req.body).then((response) => {
+        console.log('post');
         if (response.signupstatus) {
             response.loggedIN = true
+            console.log(response);
             res.json(response)
         } else {
             response.loggedIN = false

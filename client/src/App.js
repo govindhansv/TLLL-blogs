@@ -1,3 +1,4 @@
+import React from 'react'
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
@@ -16,7 +17,6 @@ import Signup from './pages/Forms/Signup/Signup';
 import Profile from './pages/Profile/Profile';
 
 function App() {
-
 
   return (
     <>

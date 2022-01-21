@@ -5,6 +5,7 @@ import axios from "axios"
 
 const Home = () => {
 
+<<<<<<< HEAD
   const [blogs, setblogs] = useState([]);
 
   useEffect(() => {
@@ -15,6 +16,8 @@ const Home = () => {
     fetchPosts()
   }, [])
 
+=======
+>>>>>>> 6e14442b632a3097a9c4ef8088dfd7d191fb953e
   return <div>
     <div className="Home">
       <Blogs blogs={blogs} />

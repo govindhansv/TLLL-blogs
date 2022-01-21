@@ -5,8 +5,14 @@ import './Navbar.css'
 const Navbar = () => {
       
 
+<<<<<<< HEAD
     const [value, setValue] = useState();
     
+=======
+    const [value,setValue] = useState();
+    console.log(value);
+
+>>>>>>> 6e14442b632a3097a9c4ef8088dfd7d191fb953e
     const refresh = ()=>{
         // it re-renders the component
         setValue({});
@@ -18,10 +24,13 @@ const Navbar = () => {
         refresh()
     }
     var logout
+    var profile
         let user = JSON.parse(localStorage.getItem('user'))
-    
+        
         if (user){
-             logout = <a href='/' onClick={()=>{Logout()}}>{user.username}</a>
+             logout = <a href='/' className='btn btn-danger-outline' onClick={()=>{Logout()}}>logout</a>
+             profile = <li><Link to="/profile">{user.username} </Link></li>
+
         }
     
     
@@ -36,6 +45,7 @@ const Navbar = () => {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/login">Login</Link></li>
                         <li><Link to="/signup">Signup</Link></li>
+                        <li>{profile}</li>
                         <li>{logout}</li>
                     </ul>
                 </div>
