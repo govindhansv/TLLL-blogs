@@ -44,7 +44,6 @@ var fun = require('../functions')
 // })
 
 router.post('/signup', (req, res) => {
-    console.log(req.body);
     fun.doSignup(req.body).then((response) => {
         if (response.signupstatus) {
             response.loggedIN = true

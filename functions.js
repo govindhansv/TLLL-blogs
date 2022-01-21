@@ -6,12 +6,12 @@ var ObjectId = require('mongodb').ObjectId
 module.exports={
     doSignup:(userdata)=>{
         return new Promise(async(resolve,reject)=>{
-            // let user= await db.get().collection('users').findOne({gmail:userdata.gmail})
-            // if (user) {
-            //     let response = {}
-            //     response.signupstatus = false
-            //     resolve(response)
-            // } else {
+            let user= await db.get().collection('users').findOne({gmail:userdata.gmail})
+            if (user) {
+                let response = {}
+                response.signupstatus = false
+                resolve(response)
+            } else {
                 console.log(userdata);
                 userdata.password=await bcrypt.hash(userdata.password,10)
                 db.get().collection('users').insertOne(userdata).then((response)=>{
@@ -19,7 +19,7 @@ module.exports={
                     response.user = userdata
                     resolve(response)
                 })            
-            // }
+            }
         })
     }, 
     doLogin:(userdata)=>{

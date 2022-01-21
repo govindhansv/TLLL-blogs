@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom'
 import './Signup.css'
 
 const Signup = () => {
@@ -6,6 +7,7 @@ const Signup = () => {
   const [password, setpassword] = useState('');
   const [username, setusername] = useState('');
 
+  const navigate = useNavigate()
   const PostData = () => {
     console.log(gmail, password, username);
     fetch("users/signup", {
@@ -21,9 +23,11 @@ const Signup = () => {
     }).then(response => response.json())
       .then(data => {
         console.log(data);
-        // if (data.signin) {
-        //   navigate('/')
-        // }
+        if (data.loggedIN) {
+          let user = data.user
+          localStorage.setItem('user',JSON.stringify(user))          
+          navigate('/')
+        }
       })
   }
 
