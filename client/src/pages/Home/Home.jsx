@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Blogs from '../../components/Blogs/Blogs';
 import './Home.css'
-import axios from "axios"
+
 
 const Home = () => {
 
