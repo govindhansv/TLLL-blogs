@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt')
 var db = require('./connection')
 var ObjectId = require('mongodb').ObjectId
-const cloudinary = require("cloudinary");
 
 
 module.exports={
@@ -13,9 +12,11 @@ module.exports={
                 response.signupstatus = false
                 resolve(response)
             } else {
+                console.log(userdata);
                 userdata.password=await bcrypt.hash(userdata.password,10)
                 db.get().collection('users').insertOne(userdata).then((response)=>{
                     response.signupstatus = true
+                    response.user = userdata
                     resolve(response)
                 })            
             }
@@ -23,27 +24,25 @@ module.exports={
     }, 
     doLogin:(userdata)=>{
         return new Promise(async(resolve,reject)=>{
-            let user= await db.get().collection('users').findOne({gmail:userdata.gmail}).then((response) => {
-                return userobj = response
-            })
+            let user= await db.get().collection('users').findOne({gmail:userdata.gmail})
             
             let response = {}
             if (user) {
                 
                 let validPassword = await bcrypt.compare(userdata.password,user.password)
                 if(!validPassword){
-                    console.log('login failed');
-                    response.status = false
+                    console.log('login failed wrong password');
+                    response.loginstatus = false
                     resolve(response)
                 }else {
                     console.log('login success');
-                    response.status = true
-                    response.user = userobj
+                    response.loginstatus = true
+                    response.user = user
                     resolve(response)
                 }
             }else{
                 console.log('login failed');
-                    response.status = false
+                    response.loginstatus = false
                     resolve(response)
             }
             })  

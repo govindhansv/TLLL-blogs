@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../connection')
+<<<<<<< HEAD
+var fun = require('../functions')
+=======
 var ObjectId = require('mongodb').ObjectId
 
 
@@ -38,6 +41,7 @@ router.post('/newblog', async function (req, res) {
 
 
 // var fun = require('../functions')
+>>>>>>> 46dfcb48cb111c8247292b2fdb156fb858736ddb
 // var ObjectId = require('mongodb').ObjectId
 
 
@@ -79,22 +83,18 @@ router.post('/newblog', async function (req, res) {
 //   res.render('blog', { blogs,user,blog })
 // })
 
-// router.post('/signup', (req, res) => {
-//   fun.doSignup(req.body).then((response) => {
-//     if (response.signupstatus) {
-//       session = req.session;
-//       session.user = response.insertedId
-//       session.loggedfalse = false
-//       session.loggedIN = true
-//       res.redirect('/users/')
-//     } else {
-//       req.session.signupstatusfalse = true
-//       res.redirect('/users/signup/')
-//     }
+router.post('/signup', (req, res) => {
+    fun.doSignup(req.body).then((response) => {
+        if (response.signupstatus) {
+            response.loggedIN = true
+            res.json(response)
+        } else {
+            response.loggedIN = false
+            res.json(response)
+        }
+    })
+})
 
-//   })
-
-// })
 // router.get('/login', function (req, res) {
 //   console.log(req.session);
 //   if (req.session.loggedIN) {
@@ -107,20 +107,17 @@ router.post('/newblog', async function (req, res) {
 //   }
 // });
 
-// router.post('/login', (req, res) => {
-//   fun.doLogin(req.body).then((response) => {
-//     if (response.status) {
-//       req.session.user = String(response.user._id)
-//       req.session.loggedfalse = false
-//       req.session.loggedIN = true
-//       res.redirect('/users/')
-//     } else {
-//       req.session.loggedfalse = true
-
-//       res.redirect('/users/login');
-//     }
-//   })
-// })
+router.post('/login', (req, res) => {
+    fun.doLogin(req.body).then((response) => {
+        if (response.loginstatus) {
+            response.loggedIN = true
+            res.json(response)
+        } else {
+            response.loggedIN = false
+            res.json(response)
+        }
+    })
+})
 
 // router.get('/logout', function (req, res) {
 //   req.session.destroy()
