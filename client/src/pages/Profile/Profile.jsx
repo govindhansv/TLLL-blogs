@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Profile.css'
 
 const Profile = () => {
@@ -9,9 +10,13 @@ const Profile = () => {
   const [password, setpassword] = useState('');
   const [id, setid] = useState(user._id);
   
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
+
+ 
+
   const PostData = () => {
-    
+
+
     fetch("users/update", {
       method: "post",
       headers: {
@@ -25,11 +30,15 @@ const Profile = () => {
     }).then(response => response.json())
       .then(data => {
         console.log(data);
-        // if (data.loggedIN) {
-        //   let user = data.user
-        //   localStorage.setItem('user',JSON.stringify(user))
-        //   navigate('/')
-        // }
+        let user = JSON.parse(localStorage.getItem('user'))
+        console.log(user);
+        user.username = username
+        user.gmail = gmail
+        user.password = password
+        localStorage.setItem('user',JSON.stringify(user))
+        console.log(JSON.parse(localStorage.getItem('user')));
+        navigate('/profile')
+        
       })
   }
 
@@ -40,7 +49,7 @@ const Profile = () => {
       <div className="settingsWrapper">
         <div className="settingsTitle">
           <span className="settingsTitleUpdate">Update Your Account</span>
-          <span className="settingsTitleDelete">Delete Account</span>
+          <button className="settingsTitleDelete" onClick={()=>{Post()}}>Delete Account</button>
         </div>
         <div className="settingsForm">
           <label>Profile Picture</label>
