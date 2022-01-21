@@ -1,3 +1,4 @@
+import React from 'react'
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
@@ -14,10 +15,8 @@ import Login from './pages/Forms/Login/Login';
 import Newblog from './pages/Forms/Newblog/Newblog';
 import Signup from './pages/Forms/Signup/Signup';
 import Profile from './pages/Profile/Profile';
-import { useState } from 'react';
 
 function App() {
-
 
   return (
     <>

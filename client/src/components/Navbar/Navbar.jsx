@@ -6,6 +6,7 @@ const Navbar = () => {
       
 
     const [value,setValue] = useState();
+    console.log(value);
 
     const refresh = ()=>{
         // it re-renders the component
@@ -17,10 +18,13 @@ const Navbar = () => {
         refresh()
     }
     var logout
+    var profile
         let user = JSON.parse(localStorage.getItem('user'))
-    
+        
         if (user){
-             logout = <a href='/' onClick={()=>{Logout()}}>{user.username}</a>
+             logout = <a href='/' className='btn btn-danger-outline' onClick={()=>{Logout()}}>logout</a>
+             profile = <li><Link to="/profile">{user.username} </Link></li>
+
         }
     
     
@@ -35,6 +39,7 @@ const Navbar = () => {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/login">Login</Link></li>
                         <li><Link to="/signup">Signup</Link></li>
+                        <li>{profile}</li>
                         <li>{logout}</li>
                     </ul>
                 </div>

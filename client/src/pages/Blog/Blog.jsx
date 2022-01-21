@@ -3,12 +3,15 @@ import Profileblock from '../../components/Profileblock/Profileblock';
 import Singlepost from '../../components/Singlepost/Singlepost';
 import './Blog.css'
 
-const Blog = ({ data }) => {
-  console.log(data);
+const Blog = () => {
+
+ 
+
+
   return (
     <>
       <div>
-        <Singlepost />
+        <Singlepost/>
         <Profileblock />
       </div>
     </>
