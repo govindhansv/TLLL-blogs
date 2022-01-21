@@ -3,7 +3,8 @@ import Profileblock from '../../components/Profileblock/Profileblock';
 import Singlepost from '../../components/Singlepost/Singlepost';
 import './Blog.css'
 
-const Blog = () => {
+const Blog = ({ data }) => {
+  console.log(data);
   return (
     <>
       <div>
