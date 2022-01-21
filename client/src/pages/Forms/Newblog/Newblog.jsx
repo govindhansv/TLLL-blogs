@@ -1,27 +1,31 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import './Newblog.css'
 
 
 const Newblog = () => {
-
+const navigate = useNavigate()
   const [title, settitle] = useState('');
   const [blog, setblog] = useState('');
+  const [img, setimg] = useState('');
 
-var ff 
+  var id
   const PostData = () => {
+    console.log('s');
     fetch("users/newblog", {
       method: "post",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        title, blog
+        title, blog,img
       })
     }).then(response => response.json())
       .then(data => {
-        console.log('cvc');
-        console.log(data);
+        localStorage.setItem('myblog',JSON.stringify(data.blogdata))
+        console.log(data.blogdata.title);
+        id = data.blogdata.title
+        navigate(`/blog/${id}`)
       })
   }
 
@@ -46,8 +50,18 @@ var ff
             type="text"
             autoFocus={true}
           />
+            </div>
+            
+            <div>
 
-        </div>
+          <input onChange={((e) => { setimg(e.target.value) })} value={img}
+            name="img"
+            className="writeInput"
+            placeholder="image link"
+            type="text"
+            />
+            </div>
+
         <div className="writeFormGroup">
           <textarea
             onChange={((e) => { setblog(e.target.value) })} value={blog}
@@ -55,11 +69,9 @@ var ff
             className="writeInput writeText"
             placeholder="Tell your story..."
             type="text"
-            autoFocus={true}
           />
         </div>
-        <button className="writeSubmit" type="submit" onClick={PostData}>
-          <Link to={`/blog/${ff}`}>Publish</Link> </button>
+        <button className="writeSubmit"  onClick={()=>{PostData()}}> Publish </button>
       </div>
     </div>
   </div>;

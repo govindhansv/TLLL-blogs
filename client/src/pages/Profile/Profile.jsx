@@ -1,15 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Profile.css'
 
 const Profile = () => {
-    return <div>
+
+  let user = JSON.parse(localStorage.getItem('user'))
+  const [username, setusername] = useState(user.username);
+  const [gmail, setgmail] = useState(user.gmail);
+  const [password, setpassword] = useState('');
+  const [id, setid] = useState(user._id);
+  
+  // const navigate = useNavigate()
+  const PostData = () => {
+    
+    fetch("users/update", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username,
+        gmail,
+        password,id
+      })
+    }).then(response => response.json())
+      .then(data => {
+        console.log(data);
+        // if (data.loggedIN) {
+        //   let user = data.user
+        //   localStorage.setItem('user',JSON.stringify(user))
+        //   navigate('/')
+        // }
+      })
+  }
+
+
+
+  return <div>
     <div className="settings">
       <div className="settingsWrapper">
         <div className="settingsTitle">
           <span className="settingsTitleUpdate">Update Your Account</span>
           <span className="settingsTitleDelete">Delete Account</span>
         </div>
-        <form className="settingsForm">
+        <div className="settingsForm">
           <label>Profile Picture</label>
           <div className="settingsPP">
             <img
@@ -27,17 +60,18 @@ const Profile = () => {
             />
           </div>
           <label>Username</label>
-          <input type="text" placeholder="Safak" name="name" />
+          <input type="text" value={username} onChange={(e) => { setusername(e.target.value) }} placeholder="eg: Jhon " name="name" />
           <label>Email</label>
-          <input type="email" placeholder="safak@gmail.com" name="email" />
+          <input type="email" value={gmail}  onChange={(e) => { setgmail(e.target.value) }} placeholder="safak@gmail.com" name="email" />
           <label>Password</label>
-          <input type="password" placeholder="Password" name="password" />
-          <button className="settingsSubmitButton" type="submit">
+          <input type="password" value={password} onChange={(e) => { setpassword(e.target.value) }} placeholder="Type new Password" name="password" />
+          <button className="settingsSubmitButton" onClick={()=>{PostData()}}>
             Update
           </button>
-        </form>
+          
+        </div>
       </div>
-      </div>
+    </div>
   </div>;
 };
 

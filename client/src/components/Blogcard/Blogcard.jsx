@@ -1,41 +1,60 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './Blogcard.css'
 
-const Blogcard = ({img}) => {
+const Blogcard = ({ blog }) => {
+
+    const navigate = useNavigate()
+    const FetchBlog = (e) => {
+        let id = e.target.value
+        console.log(e.target.value);
+        fetch("users/blog", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id
+            })
+        }).then(response => response.json())
+            .then(data => {
+                localStorage.setItem('myblog', JSON.stringify(data.blogdata))
+                id = data.blogdata.title
+                navigate(`/blog/${id}`)
+            })
+    }
+
+
     return <div>
         <div className="post">
             <img
                 className="postImg"
-                src={img}
+                src={blog.img}
                 alt=""
             />
             <div className="postInfo">
                 <div className="postCats">
                     <span className="postCat">
                         <Link className="link" to="/posts?cat=Music">
-                            Music
+                            {blog.title}
                         </Link>
                     </span>
                     <span className="postCat">
-                        <Link className="link" to="/posts?cat=Music">
+                        <Link className="link" to={`/blog/${blog._id}`}>
                             Life
                         </Link>
                     </span>
                 </div>
                 <span className="postTitle">
-                    <Link to="/post/abc" className="link">
-                        Lorem ipsum dolor sit amet
-                    </Link>
+                    <button className="link" value={blog._id} onClick={(e) => { FetchBlog(e) }}>
+                        {blog.title}
+                    </button>
                 </span>
                 <hr />
                 <span className="postDate">1 hour ago</span>
             </div>
             <p className="postDesc">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-                officia architecto deserunt deleniti? Labore ipsum aspernatur magnam
-                fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione
-                atque, exercitationem quibusdam, reiciendis odio laboriosam?
+                {blog.blog}
             </p>
         </div>
     </div>;
