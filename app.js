@@ -9,6 +9,7 @@ const db = require('./connection');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
+app.use(express.json())
 app.use('/users', usersRouter)
 app.use('/index', indexRouter)
 

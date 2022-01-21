@@ -1,6 +1,40 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../connection')
+var ObjectId = require('mongodb').ObjectId
+
+
+
+
+
+
+
+router.post('/newblog', async function (req, res) {
+    let blogdata = req.body
+    db.get().collection('blogs').insertOne(blogdata)
+    let resp = { blogdata: blogdata }
+    res.json(resp)
+});
+
+router.get('/blog/:id', (req, res) => {
+    let blogdata = await db.get().collection('blogs').findOne({ _id: ObjectId(id) })
+    let resp = { blogdata: blogdata }
+    res.json(resp)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // var fun = require('../functions')
 // var ObjectId = require('mongodb').ObjectId
 
@@ -97,7 +131,7 @@ var db = require('../connection')
 //   let blogs = await db.get().collection('blogs').find({ "userid": req.session.user }).toArray()
 //   res.render('profile', { user, blogs })
 // });
- 
+
 
 
 // router.get('/profile/:id', async function (req, res) {
@@ -108,10 +142,12 @@ var db = require('../connection')
 //   res.render('userprofile', { blogs, bloguser,user })
 // });
 
+
 // router.get('/newblog', async function (req, res) {
 //   let user = await db.get().collection('users').findOne({ _id: ObjectId(req.session.user) })
 //   res.render('newblog', { user })
 // });
+
 // router.post('/newblog', async function (req, res) {
 //   let blogdata = req.body
 //   if (!blogdata.imgurl) {
@@ -143,7 +179,7 @@ var db = require('../connection')
 //   }
 //   // fun.imgUpload(blogdata).then((response)=>{ //for cloudinary 
 //   // })
-  
+
 //   let blogid = blogdata.blogid
 //   console.log(blogid);
 //   let myquery = {_id:ObjectId(blogid)}

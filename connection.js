@@ -6,7 +6,7 @@ const state = {
 }
 module.exports.connect = function(done){
     const url= process.env.DATABASE_URL || MONGOURI
-    const dbname='thoughtma'
+    const dbname='tlll'
 
     mongoClient.connect(url,(err,data)=>{
         if(err) return done(err)
