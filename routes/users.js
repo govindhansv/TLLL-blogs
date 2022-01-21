@@ -1,9 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../connection')
-<<<<<<< HEAD
-var fun = require('../functions')
-=======
 var ObjectId = require('mongodb').ObjectId
 
 
@@ -14,18 +11,26 @@ var ObjectId = require('mongodb').ObjectId
 
 router.post('/newblog', async function (req, res) {
     let blogdata = req.body
-    // db.get().collection('blogs').insertOne(blogdata)
+    db.get().collection('blogs').insertOne(blogdata)
     let resp = { blogdata: blogdata }
     console.log('called');
         res.json(resp)
 });
 
-// router.get('/blog/:id', async (req, res) => {
-//     let id = req.params._id
-//     let blogdata = await db.get().collection('blogs').findOne({ _id: ObjectId(id) })
-//     let resp = { blogdata: blogdata }
-//     res.json(resp)
-// })
+router.get('/blogs', async (req, res) => {
+    console.log('fetch req on users/blogs');
+    let blogdata = await db.get().collection('blogs').find().toArray()
+    let resp = { blogdata: blogdata }
+    res.json(resp)
+})
+
+
+router.get('/blog/:id', async (req, res) => {
+    let id = req.params.id
+    let blog = await db.get().collection('blogs').findOne({ _id: ObjectId(id) })
+    let resp = { blog: blog }
+    res.json(resp)
+})
 
 
 
@@ -41,7 +46,6 @@ router.post('/newblog', async function (req, res) {
 
 
 // var fun = require('../functions')
->>>>>>> 46dfcb48cb111c8247292b2fdb156fb858736ddb
 // var ObjectId = require('mongodb').ObjectId
 
 

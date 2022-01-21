@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import './Newblog.css'
 
-
+ 
 const Newblog = () => {
 
   const [title, settitle] = useState('');

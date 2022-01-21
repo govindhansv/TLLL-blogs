@@ -5,12 +5,13 @@ import './Navbar.css'
 const Navbar = () => {
       
 
-    const [value,setValue] = useState();
-
+    const [value, setValue] = useState();
+    
     const refresh = ()=>{
         // it re-renders the component
-       setValue({});
+        setValue({});
     }
+    console.log(value);
 
     const Logout = ()=>{
         localStorage.clear();
