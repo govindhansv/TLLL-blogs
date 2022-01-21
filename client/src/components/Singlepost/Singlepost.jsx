@@ -34,13 +34,8 @@ const Singlepost = () => {
           <span>1 day ago</span>
         </div>
         <p className="singlePostDesc">
-<<<<<<< HEAD
-          {/* {blo.blog} */}
-         
-=======
           {blog.blog}
 
->>>>>>> 6e14442b632a3097a9c4ef8088dfd7d191fb953e
         </p>
       </div>
     </div>

@@ -8,36 +8,30 @@ import axios from 'axios'
 
  
 const Blog = () => {
-  let {id} = useParams()
+  let { id } = useParams()
   const [blog, setblog] = useState({});
   useEffect(() => {
     const fetchPosts = async () => {
-        const res = await axios.get('/users/blog/' + id )
+      const res = await axios.get('/users/blog/' + id)
       setblog(res.data)
     }
     fetchPosts()
   }, [])
 
-<<<<<<< HEAD
-  return (
-    <>
-      <div>
-        <Singlepost blog={blog} />
-=======
-const Blog = () => {
+  const Blog = () => {
 
  
 
 
-  return (
-    <>
-      <div>
-        <Singlepost/>
->>>>>>> 6e14442b632a3097a9c4ef8088dfd7d191fb953e
-        <Profileblock />
-      </div>
-    </>
-  )
-};
+    return (
+      <>
+        <div>
+          <Singlepost />
+          <Profileblock />
+        </div>
+      </>
+    )
+  };
+}
 
 export default Blog;
