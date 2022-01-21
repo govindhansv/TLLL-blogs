@@ -1,7 +1,45 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../connection')
+<<<<<<< HEAD
 var fun = require('../functions')
+=======
+var ObjectId = require('mongodb').ObjectId
+
+
+
+
+
+
+
+router.post('/newblog', async function (req, res) {
+    let blogdata = req.body
+    db.get().collection('blogs').insertOne(blogdata)
+    let resp = { blogdata: blogdata }
+    res.json(resp)
+});
+
+router.get('/blog/:id', (req, res) => {
+    let blogdata = await db.get().collection('blogs').findOne({ _id: ObjectId(id) })
+    let resp = { blogdata: blogdata }
+    res.json(resp)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var fun = require('../functions')
+>>>>>>> 46dfcb48cb111c8247292b2fdb156fb858736ddb
 // var ObjectId = require('mongodb').ObjectId
 
 
@@ -101,10 +139,12 @@ router.post('/login', (req, res) => {
 //   res.render('userprofile', { blogs, bloguser,user })
 // });
 
+
 // router.get('/newblog', async function (req, res) {
 //   let user = await db.get().collection('users').findOne({ _id: ObjectId(req.session.user) })
 //   res.render('newblog', { user })
 // });
+
 // router.post('/newblog', async function (req, res) {
 //   let blogdata = req.body
 //   if (!blogdata.imgurl) {

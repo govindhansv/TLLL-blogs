@@ -1,40 +1,73 @@
-import React from 'react';
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Newblog.css'
 
 
 const Newblog = () => {
+
+  const navigate = useNavigate()
+
+  const [title, settitle] = useState('');
+  const [blog, setblog] = useState('');
+
+  const PostData = () => {
+    console.log('clicked');
+    console.log(title,blog,);
+      fetch("users/newblog", {
+          method: "post",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              title,blog
+          })
+      }).then(response => response.json())
+          .then(data => {
+              console.log(data);
+              navigate('')
+          })
+  }
+
+
     return <div>
       <div className="write">
-      <img
+      {/* <img
         className="writeImg"
         src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
         alt=""
-      />
-      <form className="writeForm">
-        <div className="writeFormGroup">
+      /> */}
+        
+      <div className="writeForm">
+          <div className="writeFormGroup">
+            
           <label htmlFor="fileInput">
             <i className="writeIcon fas fa-plus"></i>
-          </label>
-          <input id="fileInput" type="file" style={{ display: "none" }} />
-          <input
+            </label>
+            <input onChange={((e) => { settitle(e.target.value) })} value={title}
+              
+              name="title"
             className="writeInput"
             placeholder="Title"
             type="text"
             autoFocus={true}
-          />
+            />
+            
         </div>
         <div className="writeFormGroup">
-          <textarea
+            <textarea
+              onChange={((e) => { setblog(e.target.value) })} value={blog}
+              name="blog"
             className="writeInput writeText"
             placeholder="Tell your story..."
             type="text"
             autoFocus={true}
           />
-        </div>
-        <button className="writeSubmit" type="submit">
+          </div>
+          
+        <button className="writeSubmit" type="submit" onClick={PostData}>
           Publish
         </button>
-      </form>
+      </div>
     </div>
   </div>;
 };
