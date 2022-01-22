@@ -1,6 +1,10 @@
 if (process.env.NODE_ENV !== 'production'){
     require('dotenv').config()
 }
+
+
+
+
 //edit test by govind
 const express = require('express');
 const app = express();
@@ -14,6 +18,11 @@ app.use(express.json())
 app.use('/users', usersRouter)
 app.use('/index', indexRouter)
 
+db.connect((err) => {
+    if (err) console.log("Connection Error" + err);
+    else console.log("Database connected to port")
+})
+
 const customMiddleware = (req, res, next) => {
     console.log("middleware exucuted");
     next()
@@ -23,12 +32,7 @@ app.get('/about', customMiddleware, (req, res) => {
     console.log("about");
     res.send("hello about")
 })
- 
-// server listening
 
-app.listen(process.env.PORT || PORT, () => {
-    console.log(`server is listening on ${PORT}`);
-})
 
 if (process.env.NODE_ENV == 'production') {
     app.use(express.static('client/build'));
@@ -45,9 +49,12 @@ app.use(function (req, res, next) {
 });
 
 
-db.connect((err) => {
-    if (err) console.log("Connection Error" + err);
-    else console.log("Database connected to port")
+
+ 
+// server listening
+
+app.listen(process.env.PORT || PORT, () => {
+    console.log(`server is listening on ${PORT}`);
 })
 
 // error handler

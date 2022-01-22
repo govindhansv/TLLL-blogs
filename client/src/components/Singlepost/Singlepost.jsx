@@ -13,7 +13,7 @@ const Singlepost = () => {
         <img
           className="singlePostImg"
           src={blog.img}
-          alt=""
+          alt="" 
         />
         <h1 className="singlePostTitle">
           {blog.title}
