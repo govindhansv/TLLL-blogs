@@ -36,14 +36,14 @@ router.post('/update', async (req, res) => {
         
         var query = {
             $set: {
-                username: req.body.username, gmail: req.body.gmail,password:req.body.password
+                username: req.body.username, gmail: req.body.gmail,password:req.body.password,img:req.body.img
             }
         }
     }else{
 
         var query = {
             $set: {
-                username: req.body.username, gmail: req.body.gmail
+                username: req.body.username, gmail: req.body.gmail,img:req.body.img
             }
         }
 
