@@ -33,7 +33,7 @@ const Navbar = () => {
         logout = <a href='/' class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" onClick={() => { Logout() }}>logout</a>
         profile = <>
             <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-            <Link class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/profile">{user.username} </Link>
+            <Link class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium ml-2" to="/profile">{user.username} </Link>
         </>
         myblogs = <Link class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/myblogs">My Blogs </Link>
         newblog = <Link class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/newblog">New + </Link>
@@ -46,8 +46,8 @@ const Navbar = () => {
     }
     if (!user) {
         var login = <>
-            <Link class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/signup">Signup</Link>
-        <Link class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/login">Login</Link>
+            <Link class="bg-green-600 text-white hover:bg-green-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/signup">SignUp</Link>
+        <Link class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium mx-2" to="/login">Login</Link>
             </>
         navbar = <>
                         <Link to="/signup" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">SignUp</Link>
@@ -84,12 +84,10 @@ const Navbar = () => {
                             </div>
                             <div class="hidden sm:block sm:ml-6">
                                 <div class="flex space-x-4">
-                                    <Link to="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</Link>
+                                    <Link to="/" class="hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</Link>
                                     {myblogs}
                                     {newblog}
                                     {logout}
-
-
                                 </div>
                             </div>
                         </div>
