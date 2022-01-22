@@ -85,7 +85,6 @@ const Navbar = () => {
                             <div class="hidden sm:block sm:ml-6">
                                 <div class="flex space-x-4">
                                     <Link to="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</Link>
-                                    {login}
                                     {myblogs}
                                     {newblog}
                                     {logout}
@@ -100,6 +99,8 @@ const Navbar = () => {
                                 <div>
                                     <button type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                         <span class="sr-only">Open user menu</span>
+                                        {login}
+
                                         {profile}
 
                                     </button>

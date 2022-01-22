@@ -28,7 +28,8 @@ const Myblogs = () => {
             }
     
     console.log(blogs);
-    return <div className="m-5">
+    return (
+        <>
         {
             blogs.map((blog, index) => (
                 <div key={index} style={{ display: 'flex' }}>
@@ -38,7 +39,8 @@ const Myblogs = () => {
                     </div>
             ))
         }
-    </div>;
+        </>
+    )
 };
 
 export default Myblogs;

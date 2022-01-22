@@ -43,12 +43,10 @@ const Profile = () => {
   return <div>
     <main class="profile-page">
       <section class="relative block h-500-px">
-        <div class="absolute top-0 w-full h-full bg-center bg-cover" style="
-            background-image: url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80');
-          ">
+        <div class="absolute top-0 w-full h-full bg-center bg-cover" >
           <span id="blackOverlay" class="w-full h-full absolute opacity-50 bg-black"></span>
         </div>
-        <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" style="transform: translateZ(0px)">
+        <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" >
           <svg class="absolute bottom-0 overflow-hidden" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
             <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
           </svg>
@@ -87,11 +85,11 @@ const Profile = () => {
               </div>
               <div class="text-center mt-12">
                 <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-                  Jenna Stones
+                  {user.username}
                 </h3>
                 <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                   <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
-                  Los Angeles, California
+                  {user.gmail}
                 </div>
                 <div class="mb-2 text-blueGray-600 mt-10">
                   <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>Solution Manager - Creative Tim Officer
