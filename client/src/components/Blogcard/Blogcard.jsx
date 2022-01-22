@@ -58,6 +58,7 @@ const Blogcard = ({ blog }) => {
             </p>
             {blog.author}
         </div>
+        
     </div>;
 };
 
