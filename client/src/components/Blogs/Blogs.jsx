@@ -10,6 +10,7 @@ const Blogs = () => {
     setblogs(data)
   })
 
+  
   return <div className="m-5">
     {
  blogs.map((blog, index) => (        

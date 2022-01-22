@@ -5,10 +5,15 @@ import './Newblog.css'
 
 const Newblog = () => {
 const navigate = useNavigate()
+
+let user = JSON.parse(localStorage.getItem('user'))
+console.log(user);
+
   const [title, settitle] = useState('');
   const [blog, setblog] = useState('');
   const [img, setimg] = useState('');
-
+  var userid = user._id
+  var author = user.username
   var id
   const PostData = () => {
     console.log('s');
@@ -18,7 +23,7 @@ const navigate = useNavigate()
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        title, blog,img
+        title, blog,img,userid,author
       })
     }).then(response => response.json())
       .then(data => {

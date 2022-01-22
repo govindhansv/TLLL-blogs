@@ -19,12 +19,20 @@ const Navbar = () => {
     }
     var logout
     var profile
+    var myblogs
+    var newblog
         let user = JSON.parse(localStorage.getItem('user'))
         
         if (user){
              logout = <a href='/' className='btn btn-danger-outline' onClick={()=>{Logout()}}>logout</a>
              profile = <li><Link to="/profile">{user.username} </Link></li>
+             myblogs = <li><Link to="/myblogs">My Blogs </Link></li>
+             newblog = <li><Link to="/newblog">New + </Link></li>
 
+        }
+        if (!user) {
+            var login =  <><li><Link to="/login">Login</Link></li>
+            <li><Link to="/signup">Signup</Link></li></>
         }
     
     
@@ -37,8 +45,9 @@ const Navbar = () => {
                     <Link to="/" className="left " style={{paddingLeft:"20px"}}><b> Live and Let Live</b></Link>
                     <ul id="nav-mobile" className="right ml-3">
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/login">Login</Link></li>
-                        <li><Link to="/signup">Signup</Link></li>
+                        {login}
+                        {myblogs}
+                        {newblog}
                         <li>{profile}</li>
                         <li>{logout}</li>
                     </ul>
