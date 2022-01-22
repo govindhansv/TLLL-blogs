@@ -25,41 +25,75 @@ const Blogcard = ({ blog }) => {
     }
 
 
-    return <div>
-        <div className="post">
+    return (
+         <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+          <div style={{height:"490px"}} class="bg-white rounded-lg overflow-hidden mb-10">
             <img
-                className="postImg"
-                src={blog.img}
-                alt=""
+              src={blog.img} style={{height:"250px",objectFit:"cover"}}
+              alt="image"
+              class="w-full"
             />
-            <div className="postInfo">
-                <div className="postCats">
-                    <span className="postCat">
-                        <Link className="link" to="/posts?cat=Music">
-                            {blog.title}
-                        </Link>
-                    </span>
-                    <span className="postCat">
-                        <Link className="link" to={`/blog/${blog._id}`}>
-                            Life
-                        </Link>
-                    </span>
-                </div>
-                <span className="postTitle">
-                    <button className="link" value={blog._id} onClick={(e) => { FetchBlog(e) }}>
-                        {blog.title}
-                    </button>
-                </span>
-                <hr />
-                <span className="postDate">1 hour ago</span>
-            </div>
-            <p className="postDesc">
+            <div class="p-8 sm:p-9 md:p-7 xl:p-9 text-center">
+              <h3 style={{height:"80px"}} > 
+              <button className="link" value={blog._id} onClick={(e) => { FetchBlog(e) }}
+                  class="
+                  font-semibold
+                  text-dark text-xl
+                  sm:text-[22px]
+                  md:text-xl
+                  lg:text-[22px]
+                  xl:text-xl
+                  2xl:text-[22px]
+                  mb-4
+                  block
+                  hover:text-primary
+                  "
+                  >
+                  {blog.title}
+                </button>
+              </h3>
+              <p class="text-base text-body-color leading-relaxed mb-7">
                 {blog.blog}
-            </p>
-            {blog.author}
+              </p>
+                 {blog.author}
+
+            </div>
+          </div>
         </div>
-        
-    </div>;
+    )
 };
 
 export default Blogcard;
+
+        // <div className="post">
+        //     <img
+        //         className="postImg"
+        //         src={blog.img}
+        //         alt=""
+        //     />
+        //     <div className="postInfo">
+        //         <div className="postCats">
+        //             <span className="postCat">
+        //                 <Link className="link" to="/posts?cat=Music">
+        //                     {blog.title}
+        //                 </Link>
+        //             </span>
+        //             <span className="postCat">
+        //                 <Link className="link" to={`/blog/${blog._id}`}>
+        //                     Life
+        //                 </Link>
+        //             </span>
+        //         </div>
+        //         <span className="postTitle">
+        //             <button className="link" value={blog._id} onClick={(e) => { FetchBlog(e) }}>
+        //                 {blog.title}
+        //             </button>
+        //         </span>
+        //         <hr />
+        //         <span className="postDate">1 hour ago</span>
+        //     </div>
+        //     <p className="postDesc">
+        //         {blog.blog}
+        //     </p>
+        //     {blog.author}
+        // </div>

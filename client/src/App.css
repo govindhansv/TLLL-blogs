@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   color: rgb(0, 0, 0);
-}
+}*/
 
 a{
   text-decoration: inherit !important;
@@ -17,7 +17,7 @@ a{
 }
 
 a:hover{
-  color: inherit !important;
+  color: blue !important;
   text-decoration: inherit !important;
 }
- */
+ 
