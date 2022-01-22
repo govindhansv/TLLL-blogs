@@ -27,6 +27,7 @@ const Navbar = () => {
     var myblogs
     var newblog
     let user = JSON.parse(localStorage.getItem('user'))
+    var navbar
 
     if (user) {
         logout = <a href='/' class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" onClick={() => { Logout() }}>logout</a>
@@ -36,11 +37,24 @@ const Navbar = () => {
         </>
         myblogs = <Link class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/myblogs">My Blogs </Link>
         newblog = <Link class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/newblog">New + </Link>
+
+        navbar = <>
+                        <Link to="/myblogs" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Myblogs</Link>
+                        <Link to="/newblogs" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">New +</Link>
+         <Link to="/logout" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Logout</Link>
+                        </>
     }
     if (!user) {
-        var login = <><Link class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/login">Login</Link>
-            <Link class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/signup">Signup</Link></>
-    }
+        var login = <>
+            <Link class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/signup">Signup</Link>
+        <Link class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/login">Login</Link>
+            </>
+        navbar = <>
+                        <Link to="/signup" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">SignUp</Link>
+                        <Link to="/login" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Login</Link>
+                        </>
+
+}
 
 
 
@@ -100,10 +114,10 @@ const Navbar = () => {
 
                 <div class="sm:hidden" id="mobile-menu">
                     <div class="px-2 pt-2 pb-3 space-y-1">
-                        <Link to="/logout" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</Link>
-                        <Link to="/profile" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</Link>
-                        <Link to="/login" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Login</Link>
-                        <Link to="/signup" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">SignUp</Link>
+                    <Link to="/" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Home</Link>
+
+                       {navbar}
+                       
                     </div>
                 </div>
             </nav>
