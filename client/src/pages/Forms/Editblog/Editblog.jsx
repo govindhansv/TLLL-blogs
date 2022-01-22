@@ -61,7 +61,7 @@ const Editblog = () => {
             </div>
             
             <div>
-
+        <img src={img} alt="" />
           <input onChange={((e) => { setimg(e.target.value) })} value={img}
             name="img"
             className="writeInput"
