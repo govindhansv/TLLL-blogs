@@ -49,7 +49,7 @@ const Profile = () => {
       <div className="settingsWrapper">
         <div className="settingsTitle">
           <span className="settingsTitleUpdate">Update Your Account</span>
-          <button className="settingsTitleDelete" onClick={()=>{Post()}}>Delete Account</button>
+          <button className="settingsTitleDelete">Delete Account</button>
         </div>
         <div className="settingsForm">
           <label>Profile Picture</label>
