@@ -56,9 +56,6 @@ const Navbar = () => {
 
 }
 
-
-
-
     return (
         <div>
             <nav class="bg-gray-800">
