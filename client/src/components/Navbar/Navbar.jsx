@@ -36,9 +36,6 @@ const Navbar = () => {
             <li><Link to="/signup">Signup</Link></li></>
     }
 
-
-
-
     return (
         <div>
             <nav class="bg-gray-800">
