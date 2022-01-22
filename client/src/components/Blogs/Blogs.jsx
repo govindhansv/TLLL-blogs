@@ -6,21 +6,19 @@ const Blogs = () => {
 
   const [blogs, setblogs] = useState([]);
 
-  fetch('users/blogs').then(res => res.json()).then((data)=>{
+  fetch('users/blogs').then(res => res.json()).then((data) => {
     setblogs(data)
   })
 
-  
-  return <div className="m-5">
-    {
- blogs.map((blog, index) => (        
-    <div key={index} style={{ display: 'flex' }}>
-      <Blogcard blog={blog}  />
-     </div>
- ))
-    }
-   
-  </div>;
+
+  return (
+    
+      blogs.map((blog,index) => (
+       <Blogcard key={index} blog={blog}/>
+      ))
+    
+
+  );
 };
 
 export default Blogs;
