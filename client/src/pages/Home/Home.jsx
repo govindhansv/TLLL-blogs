@@ -4,6 +4,8 @@ import './Home.css'
 
 
 const Home = () => {
+   let edit =false
+   localStorage.setItem('edit',edit)
 
    return <div>
       <div className="Home">

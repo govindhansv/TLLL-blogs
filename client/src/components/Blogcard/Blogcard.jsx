@@ -4,39 +4,70 @@ import './Blogcard.css'
 
 const Blogcard = ({ blog }) => {
 
-    const navigate = useNavigate()
-    const FetchBlog = (e) => {
-        let id = e.target.value
-        console.log(e.target.value);
-        fetch("users/blog", {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                id
-            })
-        }).then(response => response.json())
-            .then(data => {
-                localStorage.setItem('myblog', JSON.stringify(data.blogdata))
-                id = data.blogdata.title
-                navigate(`/blog/${id}`)
-            })
+  let edit = JSON.parse(localStorage.getItem('edit'))
+  var option
+  if (edit) {
+    option =<>
+     <button className="link" value={blog._id} img={blog.img} title={blog.title} blog={blog.blog} onClick={(e) => { EditBlog(e) }}>edit</button>
+     <button className="link" value={blog._id} onClick={(e) => { Delete(e) }}>Delete</button>
+    </>
+  }
+
+  const Delete = (e) => {
+      let id = e.target.value
+    
+    fetch('users/blogs/delete' + id).then(res => res.json()).then((data) => {
+      console.log(data);
+      navigate(`/myblogs`)
+    })
+  }
+
+  const EditBlog = (e) => {
+    let blog = {
+      id: e.target.value,
+      blog: e.target.getAttribute("blog"),
+      title: e.target.getAttribute("title"),
+      img: e.target.getAttribute("img")
     }
 
+    localStorage.setItem('myblog', JSON.stringify(blog))
+    navigate(`/editblog`)
+  }
 
-    return (
-         <div class="w-full md:w-1/2 xl:w-1/3 px-4">
-          <div style={{height:"490px"}} class="bg-white rounded-lg overflow-hidden mb-10">
-            <img
-              src={blog.img} style={{height:"250px",objectFit:"cover"}}
-              alt="image"
-              class="w-full"
-            />
-            <div class="p-8 sm:p-9 md:p-7 xl:p-9 text-center">
-              <h3 style={{height:"80px"}} > 
-              <button className="link" value={blog._id} onClick={(e) => { FetchBlog(e) }}
-                  class="
+  const navigate = useNavigate()
+  const FetchBlog = (e) => {
+    let id = e.target.value
+    console.log(e.target.value);
+    fetch("users/blog", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id
+      })
+    }).then(response => response.json())
+      .then(data => {
+        localStorage.setItem('myblog', JSON.stringify(data.blogdata))
+        id = data.blogdata.title
+        navigate(`/blog/${id}`)
+      })
+  }
+
+
+  return (
+    <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+      <div style={{ height: "490px" }} class="bg-white rounded-lg overflow-hidden mb-10">
+        <img
+          src={blog.img} style={{ height: "250px", objectFit: "cover" }}
+          alt="image"
+          class="w-full"
+        />
+        <div class="p-8 sm:p-9 md:p-7 xl:p-9 text-center">
+          <h3 style={{ height: "80px" }} >      {option}
+
+            <button className="link" value={blog._id} onClick={(e) => { FetchBlog(e) }}
+              class="
                   font-semibold
                   text-dark text-xl
                   sm:text-[22px]
@@ -48,19 +79,20 @@ const Blogcard = ({ blog }) => {
                   block
                   hover:text-primary
                   "
-                  >
-                  {blog.title}
-                </button>
-              </h3>
-              <p class="text-base text-body-color leading-relaxed mb-7">
-                {blog.blog}
-              </p>
-                 {blog.author}
+            >
 
-            </div>
-          </div>
+              {blog.title}
+            </button>
+          </h3>
+          <p class="text-base text-body-color leading-relaxed mb-7">
+            {blog.blog}
+          </p>
+          {blog.author}
+
         </div>
-    )
+      </div>
+    </div>
+  )
 };
 
 export default Blogcard;

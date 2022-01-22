@@ -16,8 +16,11 @@ import Newblog from './pages/Forms/Newblog/Newblog';
 import Signup from './pages/Forms/Signup/Signup';
 import Profile from './pages/Profile/Profile';
 import Myblogs from './pages/Myblogs/Myblogs';
+import EditProfile from './pages/Forms/EditProfile/EditProfile';
 
 function App() {
+
+
 
   return (
     <>
@@ -40,6 +43,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/myblogs" element={<Myblogs />} />
+              <Route path="/edit-profile" element={<EditProfile />} />
             </Routes>
           </header>
             <Footer />

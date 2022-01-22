@@ -80,6 +80,13 @@ router.post('/editblog', async (req, res) => {
 })
 
 
+router.get('/blogs/delete:id', async (req, res) => {
+    let id = req.params.id
+    db.get().collection('blogs').deleteOne({_id:ObjectId(id)}).then((resp)=>{
+        console.log(resp);
+        res.json(resp)
+    })
+})
 router.get('/blogs', async (req, res) => {
     let blogs = await db.get().collection('blogs').find({}).toArray()
     res.json(blogs)

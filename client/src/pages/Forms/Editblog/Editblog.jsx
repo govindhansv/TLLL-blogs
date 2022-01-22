@@ -10,7 +10,7 @@ const Editblog = () => {
   const [title, settitle] = useState(eblog.title);
   const [blog, setblog] = useState(eblog.blog);
   const [img, setimg] = useState(eblog.img);
-  
+    
   const navigate = useNavigate()
 
  

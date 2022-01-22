@@ -1,4 +1,5 @@
 import React from 'react';
+// import Profileblock from '../../components/Profileblock/Profileblock';
 import Singlepost from '../../components/Singlepost/Singlepost';
 import './Blog.css'
 
@@ -10,6 +11,7 @@ import './Blog.css'
       <>
         <div>
           <Singlepost />
+          {/* <Profileblock /> */}
         </div>
       </>
     )
