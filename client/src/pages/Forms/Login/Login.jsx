@@ -7,10 +7,14 @@ const Login = () => {
   const [gmail, setgmail] = useState('');
   const [password, setpassword] = useState('');
 
-    
+  var err = 'Incorrect Gmail or Password'
+  let error = JSON.parse(localStorage.getItem('err'))
+
 
   const navigate = useNavigate()
   const PostData = () => {
+    localStorage.setItem('err',JSON.stringify(''))
+
     console.log(gmail, password);
     fetch("users/login", {
       method: "post",
@@ -27,7 +31,12 @@ const Login = () => {
           let user = data.user
           localStorage.setItem('user',JSON.stringify(user))
           navigate('/')
+        }else{
+          localStorage.setItem('err',JSON.stringify(err))
+          navigate('/login')
+
         }
+
       })
   }
 
@@ -35,6 +44,7 @@ const Login = () => {
 <div class="w-full min-h-screen bg-gray-50 flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
   <div class="w-full sm:max-w-md p-5 mx-auto">
     <h2 class="mb-12 text-center text-5xl font-extrabold">Login</h2>
+    <h1 className='text-danger'>  {error}</h1>
       <div class="mb-4">
         <label class="block mb-1" for="email">Email-Address</label>
         <input id="email" type="text" value={gmail} onChange={(e) => { setgmail(e.target.value) }} name="email" class="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full" />
