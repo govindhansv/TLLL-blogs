@@ -23,6 +23,7 @@ function App() {
     <>
       <div>
         <div className="App">
+          
             <Navbar />
           <header className="App-header">
             <Routes>

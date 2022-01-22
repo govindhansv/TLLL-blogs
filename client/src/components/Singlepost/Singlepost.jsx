@@ -8,7 +8,7 @@ const Singlepost = () => {
  
 
   return <div>
-    <div className="singlePost container">
+    <div className="singlePost">
       <div className="singlePostWrapper">
         <img
           className="singlePostImg"
