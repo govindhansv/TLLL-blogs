@@ -15,6 +15,7 @@ import Login from './pages/Forms/Login/Login';
 import Newblog from './pages/Forms/Newblog/Newblog';
 import Signup from './pages/Forms/Signup/Signup';
 import Profile from './pages/Profile/Profile';
+import Myblogs from './pages/Myblogs/Myblogs';
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
               <Route path="/newblog" element={<Newblog />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/myblogs" element={<Myblogs />} />
             </Routes>
           </header>
             <Footer />

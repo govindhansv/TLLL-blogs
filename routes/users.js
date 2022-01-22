@@ -58,9 +58,41 @@ router.post('/update', async (req, res) => {
 
 })
 
+router.post('/editblog', async (req, res) => {
+    console.log(req.body);
+    let obj = { _id: ObjectId(req.body.id) }
+        
+        var query = {
+            $set: {
+                title: req.body.title, blog: req.body.blog,img:req.body.img
+            }
+        }
+    
+  
+
+    db.get().collection('blogs').updateOne(obj, query).then((resp) => {
+        console.log(resp);
+        resp.blog = req.body
+
+        res.json(resp)
+    })
+
+})
+
 
 router.get('/blogs', async (req, res) => {
     let blogs = await db.get().collection('blogs').find({}).toArray()
+    res.json(blogs)
+})
+router.get('/dev', async (req, res) => {
+    console.log('successfully deleted');
+    db.get().collection('blogs').remove({})
+    db.get().collection('users').remove({})
+    res.json('success')
+})
+
+router.get('/myblogs:id', async (req, res) => {
+    let blogs = await db.get().collection('blogs').find({userid:req.params.id}).toArray()
     res.json(blogs)
 })
 
