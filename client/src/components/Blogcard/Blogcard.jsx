@@ -57,12 +57,11 @@ const Blogcard = ({ blog }) => {
   }
 
   return (
-    <figure className="flex bg-white rounded-none md:p-0 mx-4 my-2 shadow-xl w-full h-36 content-center">
+    <figure className="flex bg-white rounded-none md:p-0 mx-4 my-2 shadow-xl w-full h-24 sm:h-36 content-center">
       <img className="w-36 h-auto md:w-48 md:h-auto rounded-none mx-auto object-cover" src={blog.img} alt="" width="384" height="512" />
-      <div className="pt-6 p-8
-     text-left space-y-4 w-full">
+      <div className="px-4 sm:px-8 space-y-4 w-full flex text-left items-center">
         <blockquote>
-          <button className="sm:text-[22px] text-lg font-medium hover:underline underline-offset-2 cursor-pointer focus:outline-none" value={blog._id} onClick={(e) => { FetchBlog(e) }}>
+          <button className="sm:text-[20px] text-md font-medium hover:underline underline-offset-2 cursor-pointer focus:outline-none" value={blog._id} onClick={(e) => { FetchBlog(e) }}>
             {blog.title}
           </button>
         </blockquote>

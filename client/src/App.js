@@ -26,7 +26,7 @@ function App() {
     <>
       <div>
           <Navbar />
-        <div className="App-header App flex flex-col mt-16 w-screen">
+        <div className="App-header App flex flex-col mt-16 ">
           <div className="bg-[#F3F4F6]">
             <Routes>
               <Route path="/profile" element={<Profile />} />
