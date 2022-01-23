@@ -26,7 +26,14 @@ function App() {
     <>
       <div>
         <div className="App flex flex-col">
-            <Navbar />
+          <Navbar />
+
+          <div className="bg-[#F3F4F6]">
+            <Routes>
+              <Route path="/profile" element={<Profile />} />
+            </Routes> 
+          </div>
+
           <header className="App-header lg:px-48 bg-[#F3F4F6]">
             <Routes>
               <Route exact path="/" element={<Home />} />
@@ -40,7 +47,6 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/newblog" element={<Newblog />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/profile" element={<Profile />} />
               <Route path="/myblogs" element={<Myblogs />} />
               <Route path="/edit-profile" element={<EditProfile />} />
             </Routes>
