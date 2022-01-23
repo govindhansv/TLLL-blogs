@@ -30,7 +30,8 @@ const Login = () => {
         if (data.loggedIN) {
           let user = data.user
           localStorage.setItem('user',JSON.stringify(user))
-          navigate('/')
+          
+          navigate('/success')
         }else{
           localStorage.setItem('err',JSON.stringify(err))
           navigate('/login')
@@ -68,6 +69,7 @@ const Login = () => {
       </div>
   </div>
 </div>
+     
     {/* <div className="login">
       <span className="loginTitle">Login</span>
       <div className="loginForm">

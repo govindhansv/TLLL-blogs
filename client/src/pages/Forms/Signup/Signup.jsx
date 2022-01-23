@@ -32,7 +32,7 @@ const Signup = () => {
         if (data.loggedIN) {
           let user = data.user
           localStorage.setItem('user',JSON.stringify(user))          
-          navigate('/')
+          navigate('/success')
         }else{
           localStorage.setItem('lerr',JSON.stringify(lerr))
           navigate('/signup')

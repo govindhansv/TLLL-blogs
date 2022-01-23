@@ -84,7 +84,7 @@ const Navbar = () => {
                             </div>
                             <div class="hidden sm:block sm:ml-6">
                                 <div class="flex space-x-4">
-                                    <Link to="/" class="hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</Link>
+                                    <a href="/" class="hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
                                     {myblogs}
                                     {newblog}
                                     {logout}

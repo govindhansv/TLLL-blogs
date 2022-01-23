@@ -17,8 +17,11 @@ import Signup from './pages/Forms/Signup/Signup';
 import Profile from './pages/Profile/Profile';
 import Myblogs from './pages/Myblogs/Myblogs';
 import EditProfile from './pages/Forms/EditProfile/EditProfile';
+import Success from './pages/Success/Success';
 
 function App() {
+
+
 
 
 
@@ -27,7 +30,7 @@ function App() {
       <div>
         <div className="App">
           
-            <Navbar />
+            <Navbar/>
           <header className="App-header">
             <Routes>
               <Route exact path="/" element={<Home />} />
@@ -44,6 +47,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/myblogs" element={<Myblogs />} />
               <Route path="/edit-profile" element={<EditProfile />} />
+              <Route path="/success" element={<Success />} />
             </Routes>
           </header>
             <Footer />
