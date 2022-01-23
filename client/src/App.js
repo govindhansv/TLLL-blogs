@@ -22,10 +22,9 @@ function App() {
   return (
     <>
       <div>
-        <div className="App">
-          
+        <div className="App flex flex-col">
             <Navbar />
-          <header className="App-header">
+          <header className="App-header lg:px-48 bg-[#F3F4F6]">
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
@@ -42,7 +41,9 @@ function App() {
               <Route path="/myblogs" element={<Myblogs />} />
             </Routes>
           </header>
+          <div className="mt-auto" >
             <Footer />
+          </div>
         </div>
       </div>
 
