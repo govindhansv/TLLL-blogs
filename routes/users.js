@@ -36,14 +36,14 @@ router.post('/update', async (req, res) => {
         
         var query = {
             $set: {
-                username: req.body.username, gmail: req.body.gmail,password:req.body.password
+                username: req.body.username, gmail: req.body.gmail,password:req.body.password,img:req.body.img
             }
         }
     }else{
 
         var query = {
             $set: {
-                username: req.body.username, gmail: req.body.gmail
+                username: req.body.username, gmail: req.body.gmail,img:req.body.img
             }
         }
 
@@ -80,6 +80,13 @@ router.post('/editblog', async (req, res) => {
 })
 
 
+router.get('/blogs/delete:id', async (req, res) => {
+    let id = req.params.id
+    db.get().collection('blogs').deleteOne({_id:ObjectId(id)}).then((resp)=>{
+        console.log(resp);
+        res.json(resp)
+    })
+})
 router.get('/blogs', async (req, res) => {
     let blogs = await db.get().collection('blogs').find({}).toArray()
     res.json(blogs)

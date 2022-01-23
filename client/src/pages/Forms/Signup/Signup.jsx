@@ -7,8 +7,14 @@ const Signup = () => {
   const [password, setpassword] = useState('');
   const [username, setusername] = useState('');
 
+  var lerr ='Email Already Used try with new one'
+  let loginerror = JSON.parse(localStorage.getItem('lerr'))
+
+
   const navigate = useNavigate()
   const PostData = () => {
+    localStorage.setItem('lerr',JSON.stringify(''))
+
     console.log(gmail, password, username);
     fetch("users/signup", {  
       method: "post",
@@ -27,6 +33,10 @@ const Signup = () => {
           let user = data.user
           localStorage.setItem('user',JSON.stringify(user))          
           navigate('/')
+        }else{
+          localStorage.setItem('lerr',JSON.stringify(lerr))
+          navigate('/signup')
+
         }
       })
   }
@@ -36,6 +46,7 @@ const Signup = () => {
 <div className="w-full min-h-screen bg-gray-50 flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
   <div className="w-full sm:max-w-md p-5 mx-auto">
     <h2 className="mb-12 text-center text-5xl font-extrabold">Welcome</h2>
+    <h1 className='text-danger'>{loginerror}</h1>
       <div className="mb-4">
         <label className="block mb-1" for="email">Name</label>
         <input id="email" type="text"  value={username} onChange={(e) => { setusername(e.target.value) }} name="name" className="py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full" />
