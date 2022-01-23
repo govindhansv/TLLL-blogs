@@ -25,16 +25,15 @@ function App() {
   return (
     <>
       <div>
-        <div className="App flex flex-col">
           <Navbar />
-
+        <div className="App-header App flex flex-col mt-16">
           <div className="bg-[#F3F4F6]">
             <Routes>
               <Route path="/profile" element={<Profile />} />
             </Routes> 
           </div>
 
-          <header className="App-header lg:px-48 bg-[#F3F4F6]">
+          <header className="lg:px-48 bg-[#F3F4F6]">
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route path="/about" element={<About />} />

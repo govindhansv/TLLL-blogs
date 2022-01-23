@@ -9,7 +9,7 @@ const Blogcard = ({ blog }) => {
   if (edit) {
     option = <>
       <div className="flex">
-        <button className="block p-1 px-2 text-white rounded text-base font-medium bg-indigo-500 hover:bg-indigo-600" value={blog._id} img={blog.img} title={blog.title} blog={blog.blog} onClick={(e) => { EditBlog(e) }}>edit</button>
+        <button className="block p-1 px-2 text-white rounded text-base font-medium bg-indigo-500 hover:bg-indigo-600" value={blog._id} img={blog.img} title={blog.title} blog={blog.blog} onClick={(e) => { EditBlog(e) }}>Edit</button>
         <button className="block p-1 px-2 text-white ml-2 rounded text-base font-medium bg-red-500 hover:bg-red-600" value={blog._id} onClick={(e) => { Delete(e) }}>Delete</button>
       </div>
     </>
@@ -57,8 +57,8 @@ const Blogcard = ({ blog }) => {
   }
 
   return (
-    <figure className="flex bg-slate-100 rounded-xl md:p-0 dark:bg-slate-800 m-4 shadow-xl w-full">
-      <img className="w-36 h-auto md:w-48 md:h-auto md:rounded-none rounded mx-auto object-cover" src={blog.img} alt="" width="384" height="512" />
+    <figure className="flex bg-white rounded-none md:p-0 mx-4 my-2 shadow-xl w-full h-36 content-center">
+      <img className="w-36 h-auto md:w-48 md:h-auto rounded-none mx-auto object-cover" src={blog.img} alt="" width="384" height="512" />
       <div className="pt-6 p-8
      text-left space-y-4 w-full">
         <blockquote>

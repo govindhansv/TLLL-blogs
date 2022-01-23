@@ -12,7 +12,7 @@ const Home = () => {
     
       <div className="container">
             <Bigcard />
-         <section class="shadow-xl pb-2 pt-2 bg-[#F3F4F6] lg:mb-10">
+         <section class="pb-2 rounded lg:my-4 lg:mb-10">
             <div class="container">
                <div class="flex flex-wrap -mx-4 ">
                   <Blogs />
@@ -20,7 +20,6 @@ const Home = () => {
             </div>
          </section>
       </div>
-
    </div>;
 };
 

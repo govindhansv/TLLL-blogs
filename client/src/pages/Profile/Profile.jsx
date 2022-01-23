@@ -9,7 +9,7 @@ const Profile = () => {
 
 
   return <div>
-    <main class="profile-page">
+    <main class="">
 
       <section class="relative block h-500-px">
         <img className="absolute w-full h-80 object-cover" src="https://images.unsplash.com/photo-1642888374476-0c7f99a644ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1375&q=80" alt="" />
