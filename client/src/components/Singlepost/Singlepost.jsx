@@ -8,10 +8,10 @@ const Singlepost = () => {
  
 
   return <div>
-    <div className="singlePost">
-      <div className="singlePostWrapper">
+    <div className="singlePost bg-white" >
+      <div className="p-5">
         <img
-          className="singlePostImg"
+          className="w-screen h-60 object-cover rounded"
           src={blog.img}
           alt="" 
         />

@@ -7,15 +7,17 @@ const Blogcard = ({ blog }) => {
   let edit = JSON.parse(localStorage.getItem('edit'))
   var option
   if (edit) {
-    option =<>
-     <button className="link" value={blog._id} img={blog.img} title={blog.title} blog={blog.blog} onClick={(e) => { EditBlog(e) }}>edit</button>
-     <button className="link" value={blog._id} onClick={(e) => { Delete(e) }}>Delete</button>
+    option = <>
+      <div className="flex">
+        <button className="block p-1 px-2 text-white rounded text-base font-medium bg-indigo-500 hover:bg-indigo-600" value={blog._id} img={blog.img} title={blog.title} blog={blog.blog} onClick={(e) => { EditBlog(e) }}>edit</button>
+        <button className="block p-1 px-2 text-white ml-2 rounded text-base font-medium bg-red-500 hover:bg-red-600" value={blog._id} onClick={(e) => { Delete(e) }}>Delete</button>
+      </div>
     </>
   }
 
   const Delete = (e) => {
-      let id = e.target.value
-    
+    let id = e.target.value
+
     fetch('users/blogs/delete' + id).then(res => res.json()).then((data) => {
       console.log(data);
       navigate(`/myblogs`)
@@ -55,23 +57,19 @@ const Blogcard = ({ blog }) => {
   }
 
   return (
-    <figure className="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800 m-4 shadow-xl w-full">
-    <img className="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto object-cover" src={blog.img} alt="" width="384" height="512"/>
-    <div className="pt-6 md:p-8 text-center md:text-left space-y-4 w-full">
-      <blockquote>
-        <button className=" text-lg font-medium hover:underline underline-offset-2 cursor-pointer focus:outline-none" value={blog._id} onClick={(e) => { FetchBlog(e) }}>
-         {blog.title}
-        </button>
-      </blockquote>
-      <figcaption className="font-medium">
-        <div className="text-sky-500 dark:text-sky-400 focus:outline-none hover:underline underline-offset-2">
-          {blog.author}
-          </div>
-          {option}
-      </figcaption>
-    </div>
-  </figure>
-    )
+    <figure className="flex bg-slate-100 rounded-xl md:p-0 dark:bg-slate-800 m-4 shadow-xl w-full">
+      <img className="w-36 h-auto md:w-48 md:h-auto md:rounded-none rounded mx-auto object-cover" src={blog.img} alt="" width="384" height="512" />
+      <div className="pt-6 p-8
+     text-left space-y-4 w-full">
+        <blockquote>
+          <button className="sm:text-[22px] text-lg font-medium hover:underline underline-offset-2 cursor-pointer focus:outline-none" value={blog._id} onClick={(e) => { FetchBlog(e) }}>
+            {blog.title}
+          </button>
+        </blockquote>
+        {option}
+      </div>
+    </figure>
+  )
 };
 
 export default Blogcard;

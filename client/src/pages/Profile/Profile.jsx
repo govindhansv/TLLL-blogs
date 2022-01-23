@@ -28,7 +28,7 @@ const Profile = () => {
               <div class="flex flex-wrap justify-center">
                 <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
                   <div class="relative">
-                    <img alt="..." src={user.img} class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"/>
+                    <img alt="..." src={user.img} class="object-cover shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"/>
                   </div>
                 </div>
                 <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
