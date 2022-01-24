@@ -2,38 +2,36 @@ import React from 'react';
 
 const Bigcard = () => {
   return <div>
-    <div class="w-full my-8">
-      <div style={{ height: "500px" }} class="bg-white overflow-hidden mb-10 shadow-2xl ">
+    <div class="w-full my-5">
+      <div style={{ height: "400px" }} class="bg-white overflow-hidden shadow-2xl ">
         <img
-          src="https://images.pexels.com/photos/372882/pexels-photo-372882.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" style={{ height: "330px", objectFit: "cover" }}
+          src="https://images.pexels.com/photos/372882/pexels-photo-372882.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" style={{ height: "250px", objectFit: "cover" }}
           alt="image"
           class="w-full"
         />
-        <div class="sm:p-9 md:p-7 xl:p-5 text-center">
-          <h3 style={{ height: "80px" }} >
+        <div class="flex flex-col  text-center">
+          <h3 style={{ height: "80px" }} className=" flex justify-center " >
             <button className="link"
               class="
-                  font-semibold
-                  text-dark text-xl
+                  font-bold
+                  text-dark
+                  text-xl
+                  font-bold
                   sm:text-[22px]
                   md:text-xl
                   lg:text-[24px]
                   xl:text-[26px]
                   2xl:text-[26px]
-                  mb-4
                   block
-                  hover:underline underline-offset-2
+                  hover:underline underline-offset-1
                   focus:outline-none
                   "
             >
-              This is how we going to break down to pieces in next diaphora of sunset in a grabage of two sons
+              28 Lessons I’ve Learned Over 28 Years
             </button>
           </h3>
-          {/* <p class="text-base text-body-color leading-relaxed xl:mb-1 mb-1 p-2">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has Lorem Ipsum has Lorem Ipsum has ha
-            </p> */}
-          <figcaption class="font-medium mt-5">
-            <div class="text-sky-500 dark:text-sky-400">
+          <figcaption class="font-medium">
+            <div class="text-sky-500 hover:underline underline-offset-1 cursor-pointer">
               Gokul Hans V
             </div>
           </figcaption>

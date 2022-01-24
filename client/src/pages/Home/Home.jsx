@@ -8,18 +8,16 @@ const Home = () => {
    let edit =false
    localStorage.setItem('edit',edit)
 
-   return <div>
-      <div className="">
+   return <>
             <Bigcard />
          <section class="pb-2 rounded lg:my-4 lg:mb-10">
-            <div class="">
-               <div class="flex flex-wrap -mx-4 ">
+  
+               <div class="flex flex-wrap">
                   <Blogs />
-               </div>
+        
             </div>
          </section>
-      </div>
-   </div>;
+      </>
 };
 
 export default Home;
