@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 
-
 function EditProfile() {
 
   let user = JSON.parse(localStorage.getItem('user'))
@@ -45,41 +44,24 @@ function EditProfile() {
 
 
   return (
-    <div className="settings">
+    <div className="py-3 px-3 flex flex-col bg-white">
       <div className="settingsWrapper">
-        <div className="settingsTitle">
-          <span className="settingsTitleUpdate">Update Your Account</span>
-          <button className="settingsTitleDelete">Delete Account</button>
-        </div>
+        <h1 className="text-center text-2xl font-bold text-gray-500 mb-8 mt-3">EDIT PROFILE</h1>
         <div className="settingsForm">
-          <label>Profile Picture</label>
+          <label className="text-lx block font-medium text-slate-700">Profile Picture</label>
           <div className="settingsPP">
-            <img
-              src={img}
-              alt=""
-            />
-            <input type="text" value={img} onChange={(e) => { setimg(e.target.value) }} placeholder="profile pic link" name="email" />
-
-            {/* <label htmlFor="fileInput">
-              <i className="settingsPPIcon far fa-user-circle"></i>{" "}
-            </label> */}
-            {/* <input
-              id="fileInput"
-              type="file"
-              style={{ display: "none" }}
-              className="settingsPPInput"
-            /> */}
+            <img className="rounded-full h-24 w-24 object-cover m-5" src={img} alt="profile pic" />
+            <input className="w-full my-2 outline-none py-2  px-2 text-md border-2 rounded-md" type="text" value={img} onChange={(e) => { setimg(e.target.value) }} placeholder="profile pic link" name="email" />
           </div>
-          <label>Username</label>
-          <input type="text" value={username} onChange={(e) => { setusername(e.target.value) }} placeholder="eg: Jhon " name="name" />
-          <label>Email</label>
-          <input type="email" value={gmail} onChange={(e) => { setgmail(e.target.value) }} placeholder="safak@gmail.com" name="email" />
-          <label>Password</label>
-          <input type="password" value={password} onChange={(e) => { setpassword(e.target.value) }} placeholder="Type new Password" name="password" />
-          <button className="settingsSubmitButton" onClick={() => { PostData() }}>
+          <label className="text-lx block font-medium text-slate-700">Username</label>
+          <input className="w-full my-2 outline-none py-2  px-2 text-md border-2 rounded-md" type="text" value={username} onChange={(e) => { setusername(e.target.value) }} placeholder="eg: Jhon " name="name" />
+          <label className="text-lx block font-medium text-slate-700">Email</label>
+          <input className="w-full my-2 outline-none py-2  px-2 text-md border-2 rounded-md" type="email" value={gmail} onChange={(e) => { setgmail(e.target.value) }} placeholder="safak@gmail.com" name="email" />
+          <label className="text-lx block font-medium text-slate-700">Password</label>
+          <input className="w-full my-2 outline-none py-2  px-2 text-md border-2 rounded-md" type="password" value={password} onChange={(e) => { setpassword(e.target.value) }} placeholder="Type new Password" name="password" />
+          <button className="px-6 py-2 my-4 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-indigo-600 " onClick={() => { PostData() }}>
             Update
           </button>
-
         </div>
       </div>
     </div>
