@@ -26,14 +26,14 @@ function App() {
     <>
       <div>
           <Navbar />
-        <div className="App-header App flex flex-col mt-16 px-1">
-          <div className="bg-[#F3F4F6]">
+        <div className="App-header App flex flex-col mt-16 ">
+         
             <Routes>
               <Route path="/profile" element={<Profile />} />
             </Routes> 
-          </div>
+          
 
-          <header className="lg:px-48 md:px-36 bg-[#F3F4F6]">
+          <header className="px-1 lg:px-48 md:px-36 bg-[#F3F4F6]">
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route path="/about" element={<About />} />

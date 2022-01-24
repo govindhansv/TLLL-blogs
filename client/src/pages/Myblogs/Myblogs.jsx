@@ -22,10 +22,10 @@ const Myblogs = () => {
     console.log(blogs);
     return (
         <>
-            <section class="pb-2 pt-2 rounded lg:my-4 lg:mb-10">
-        <h1 className="text-center text-2xl font-bold text-gray-500 mt-5 mb-5">MY BLOGS</h1>
+            <section class="pb-2 rounded lg:my-4 lg:mb-10 bg-white">
+        <h1 className="text-center text-2xl font-bold text-gray-500 pt-5 mb-5">MY BLOGS</h1>
                 <div class="container">
-                    <div class="flex flex-wrap -mx-4 lg:p-4">
+                    <div class="flex flex-wrap -mx-4 lg:p-4"> 
 
                         {
                             blogs.map((blog, index) => (

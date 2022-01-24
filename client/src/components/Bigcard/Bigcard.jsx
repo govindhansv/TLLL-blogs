@@ -3,7 +3,7 @@ import React from 'react';
 const Bigcard = () => {
   return <div>
     <div class="w-full my-5">
-      <div style={{ height: "360px" }} class="bg-white overflow-hidden shadow-2xl ">
+      <div style={{ height: "360px" }} class="bg-white overflow-hidden shadow-md ">
         <img
           src="https://images.pexels.com/photos/372882/pexels-photo-372882.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" style={{ height: "240px", objectFit: "cover" }}
           alt="image"
@@ -12,7 +12,7 @@ const Bigcard = () => {
         <div class="flex flex-col  text-center">
           <h3 style={{ height: "80px" }} className=" flex justify-center px-12" >
             <button className="link"
-              class="font-bold text-dark text-xl font-bold sm:text-[22px] md:text-xl lg:text-[24px] xl:text-[26px]
+              class="font-bold text-dark text-md font-bold sm:text-[22px] md:text-xl lg:text-[24px] xl:text-[26px]
               2xl:text-[26px] block hover:underline underline-offset-1 focus:outline-none ">
               28 Lessons I’ve Learned Over 28 Years 28 Lessons I’ve Learned Over 28 Years
             </button>

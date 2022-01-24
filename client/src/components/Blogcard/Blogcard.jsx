@@ -8,9 +8,9 @@ const Blogcard = ({ blog }) => {
   var option
   if (edit) {
     option = <>
-      <div className="flex">
-        <button className="block p-1 px-2 text-white rounded text-base font-medium bg-indigo-500 hover:bg-indigo-600" value={blog._id} img={blog.img} title={blog.title} blog={blog.blog} onClick={(e) => { EditBlog(e) }}>Edit</button>
-        <button className="block p-1 px-2 text-white ml-2 rounded text-base font-medium bg-red-500 hover:bg-red-600" value={blog._id} onClick={(e) => { Delete(e) }}>Delete</button>
+      <div className="flex mt-3">
+        <button className="block p-1 text-white rounded text-xs font-medium bg-indigo-500 hover:bg-indigo-600" value={blog._id} img={blog.img} title={blog.title} blog={blog.blog} onClick={(e) => { EditBlog(e) }}>Edit</button>
+        <button className="block p-1 text-white ml-2 rounded text-xs font-medium bg-red-500 hover:bg-red-600" value={blog._id} onClick={(e) => { Delete(e) }}>Delete</button>
       </div>
     </>
   }
@@ -57,9 +57,9 @@ const Blogcard = ({ blog }) => {
   }
 
   return (
-    <figure className="flex bg-white rounded-none md:p-0 my-1 shadow-md w-full h-24 sm:h-36 content-center">
+    <figure className="relative flex bg-white rounded-none md:p-0 my-1 shadow-md w-full h-24 sm:h-36 content-center">
       <img className="w-24 h-auto md:w-48 md:h-auto rounded-none mx-auto object-cover" src={blog.img} alt="" width="384" height="512" />
-      <div className="px-2 sm:px-8 space-y-4 w-full flex text-left items-center">
+      <div className="px-2 sm:px-8 w-full flex flex-col text-left items-center">
         <blockquote>
           <button className="sm:text-[20px] text-sm font-medium hover:underline underline-offset-2 cursor-pointer focus:outline-none" value={blog._id} onClick={(e) => { FetchBlog(e) }}>
             {blog.title}
