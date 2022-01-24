@@ -10,11 +10,9 @@ const Home = () => {
 
    return <>
             <Bigcard />
-         <section class="pb-2 rounded lg:my-4 lg:mb-10">
-  
-               <div class="flex flex-wrap">
+         <section class="pb-2 rounded lg:my-4 lg:mb-10 bg-white">
+               <div class="flex flex-wrap  p-2">
                   <Blogs />
-        
             </div>
          </section>
       </>
