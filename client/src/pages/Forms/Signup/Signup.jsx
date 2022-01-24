@@ -74,18 +74,6 @@ const Signup = () => {
       </div>
   </div>
 </div>
-    {/* <div className="register">
-      <span className="registerTitle">Register</span>
-      <div className="registerForm">
-        <label>Username</label>
-        <input className="registerInput" value={username} onChange={(e) => { setusername(e.target.value) }} type="text" placeholder="Enter your username..." />
-        <label>Email</label>
-        <input className="registerInput" type="email" value={gmail} onChange={(e) => { setgmail(e.target.value) }} placeholder="Enter your email..." />
-        <label>Password</label>
-        <input className="registerInput" type="password" value={password} onChange={(e) => { setpassword(e.target.value) }} placeholder="Enter your password..." />
-        <button className="btn btn-success m-3" onClick={() => { PostData() }}>Register</button>
-      </div>
-    </div> */}
   </div>;
 };
 

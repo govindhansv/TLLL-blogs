@@ -48,7 +48,6 @@ router.post('/update', async (req, res) => {
         }
 
     }
-  
 
     db.get().collection('users').updateOne(obj, query).then((resp) => {
         console.log(resp);
@@ -67,8 +66,6 @@ router.post('/editblog', async (req, res) => {
                 title: req.body.title, blog: req.body.blog,img:req.body.img
             }
         }
-    
-  
 
     db.get().collection('blogs').updateOne(obj, query).then((resp) => {
         console.log(resp);

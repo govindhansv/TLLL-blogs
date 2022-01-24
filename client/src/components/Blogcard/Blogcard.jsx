@@ -57,7 +57,7 @@ const Blogcard = ({ blog }) => {
   }
 
   return (
-    <figure className="flex bg-white rounded-none md:p-0 mx-4 my-2 shadow-xl w-full h-24 sm:h-36 content-center">
+    <figure className="flex bg-white rounded-none md:p-0 mb-4 shadow-xl w-full h-24 sm:h-36 content-center">
       <img className="w-24 h-auto md:w-48 md:h-auto rounded-none mx-auto object-cover" src={blog.img} alt="" width="384" height="512" />
       <div className="px-2 sm:px-8 space-y-4 w-full flex text-left items-center">
         <blockquote>

@@ -21,7 +21,7 @@ const Profile = () => {
           <div class=" w-full flex justify-center mb-36">
             <img alt="" src={user.img} class="object-cover shadow-xl rounded-xl h-auto border-none absolute max-w-150-px " />
           </div>
-
+          
           <div class="w-full px-3 text-center sm:mt-0">
             <button className=" bg-pink-500 mx-1 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" onClick={() => { navigate('/edit-profile') }} >Edit Profile</button>
             <button className=" bg-pink-500 mx-2 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" onClick={() => { navigate('/myblogs') }} >My blogs</button>

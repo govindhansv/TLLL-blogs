@@ -13,7 +13,7 @@ const Home = () => {
       <div className="container">
             <Bigcard />
          <section class="pb-2 rounded lg:my-4 lg:mb-10">
-            <div class="container">
+            <div class="">
                <div class="flex flex-wrap -mx-4 ">
                   <Blogs />
                </div>
