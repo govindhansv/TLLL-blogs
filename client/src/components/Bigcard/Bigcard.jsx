@@ -9,7 +9,7 @@ const Bigcard = () => {
           alt="image"
           class="w-full"
         />
-        <div class="p-5 sm:p-9 md:p-7 xl:p-5 text-center">
+        <div class="sm:p-9 md:p-7 xl:p-5 text-center">
           <h3 style={{ height: "80px" }} >
             <button className="link"
               class="

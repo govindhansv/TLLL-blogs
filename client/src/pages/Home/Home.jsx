@@ -9,8 +9,7 @@ const Home = () => {
    localStorage.setItem('edit',edit)
 
    return <div>
-    
-      <div className="container">
+      <div className="">
             <Bigcard />
          <section class="pb-2 rounded lg:my-4 lg:mb-10">
             <div class="">
