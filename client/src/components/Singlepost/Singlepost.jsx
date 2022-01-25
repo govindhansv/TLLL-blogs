@@ -10,7 +10,7 @@ const Singlepost = () => {
   return <div>
     <div className="bg-white" >
         <img className="w-screen h-80 object-cover" src={blog.img} alt="" />
-        <div className="bg-white lg:mx-48 sm:px-8 md:px-8 pb-16 mt-4 lg:pt-8 lg:shadow-md">
+        <div className="bg-white lg:mx-48 sm:px-8 md:px-8 pb-16 mt-4 lg:pt-4 lg:shadow-md">
           <h1 className="singlePostTitle ">
             {blog.title}
           </h1>
