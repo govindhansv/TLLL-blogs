@@ -18,8 +18,8 @@ const Bigcard = () => {
             </button>
           </h3>
           <figcaption class="font-medium">
-            <div class="text-sky-500 hover:underline underline-offset-1 cursor-pointer">
-              Gokul Hans V
+            <div class="text-sky-500 text-xs hover:underline underline-offset-1 cursor-pointer">
+              Varmin Pullin
             </div>
           </figcaption>
         </div>

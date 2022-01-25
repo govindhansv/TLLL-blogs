@@ -8,10 +8,10 @@ const Singlepost = () => {
  
 
   return <div>
-    <div className="singlePost bg-white" >
-      <div className="p-5">
+    <div className="bg-white" >
+      <div className="">
         <img
-          className="w-screen h-60 object-cover rounded"
+          className="w-screen h-60 object-cover"
           src={blog.img}
           alt="" 
         />
@@ -22,7 +22,7 @@ const Singlepost = () => {
             <i className="singlePostIcon far fa-trash-alt"></i>
           </div> */}
         </h1>
-        <div className="singlePostInfo">
+        <div className="singlePostInfo px-2">
           <span>
             Author:
             <b className="singlePostAuthor">
@@ -33,7 +33,7 @@ const Singlepost = () => {
           </span>
           <span>1 day ago</span>
         </div>
-        <p className="singlePostDesc">
+        <p className="singlePostDesc px-2">
           {blog.blog}
 
         </p>

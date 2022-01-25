@@ -14,16 +14,16 @@ const Profile = () => {
       </section>
 
       <section class="relative sm:px-12 md:px-16 lg:px-32 mx-6">
-        <div class="px-10 py-6 flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-80">
+        <div class=" flex flex-col min-w-0 break-words bg-white w-full shadow-xl rounded-lg -mt-80">
 
-          <div class=" w-full flex justify-center h-36">
+          <div class=" w-full flex justify-center h-24 my-5">
             <img alt="" src={user.img} class="object-cover shadow-xl rounded-full border-none absolute h-24 w-24" />
           </div>
           
           <div class="w-full text-center sm:mt-0">
-            <button className=" bg-pink-500 mx-1 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" onClick={() => { navigate('/edit-profile') }} >Edit Profile</button>
-            <button className=" bg-pink-500 mx-2 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" onClick={() => { navigate('/myblogs') }} >My blogs</button>
-            <button className=" bg-pink-500 mx-1 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" onClick={() => { navigate('/newblog') }} >New Blog</button>
+            <button className=" bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-2 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" onClick={() => { navigate('/edit-profile') }} >Edit Profile</button>
+            <button className=" bg-pink-500 mx-2 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-3 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" onClick={() => { navigate('/myblogs') }} >My blogs</button>
+            <button className=" bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-3 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150" onClick={() => { navigate('/newblog') }} >New Blog</button>
           </div>
 
           <div class="text-center mt-2">

@@ -33,7 +33,7 @@ function App() {
             </Routes> 
           
 
-          <header className="px-1 lg:px-48 md:px-36 bg-[#F3F4F6]">
+          <header className=" lg:px-48 md:px-36 bg-[#F3F4F6]">
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
