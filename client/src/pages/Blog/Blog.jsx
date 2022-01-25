@@ -9,7 +9,7 @@ import './Blog.css'
 
     return (
       <>
-        <div className="lg:my-10 rounded-md">
+        <div className="rounded-md">
           <Singlepost />
           {/* <Profileblock /> */}
         </div>

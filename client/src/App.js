@@ -30,10 +30,11 @@ function App() {
          
             <Routes>
               <Route path="/profile" element={<Profile />} />
+              <Route path="/blog/:id" element={<Blog />} />
             </Routes> 
           
 
-          <header className=" lg:px-48 md:px-36 bg-[#F3F4F6]">
+          <header className="lg:px-48 md:px-36 bg-[#F3F4F6]">
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
@@ -41,7 +42,6 @@ function App() {
               <Route path="/adminlogin" element={<Adminlogin />} />
               <Route path="/allblogs" element={<Allblogs />} />
               <Route path="/allusers" element={<Allusers />} />
-              <Route path="/blog/:id" element={<Blog />} />
               <Route path="/editblog" element={<Editblog />} />
               <Route path="/login" element={<Login />} />
               <Route path="/newblog" element={<Newblog />} />
