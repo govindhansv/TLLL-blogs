@@ -35,8 +35,6 @@ const Signup = () => {
           navigate('/')
         }else{
           localStorage.setItem('lerr',JSON.stringify(lerr))
-          navigate('/signup')
-
         }
       })
   }
@@ -67,7 +65,7 @@ const Signup = () => {
         <a href="#" className="text-sm"> Forgot your password? </a>
       </div>
       <div className="mt-6">
-        <button  onClick={() => { PostData() }} className="w-full inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold capitalize text-white hover:bg-red-700 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 disabled:opacity-25 transition">Sign In</button>
+        <a href="/"  onClick={() => { PostData() }} className="w-full inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold capitalize text-white hover:bg-red-700 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 disabled:opacity-25 transition">Sign In</a>
       </div>
       <div className="mt-6 text-center">
         <a href="#" className="underline">Sign up for an account</a>
